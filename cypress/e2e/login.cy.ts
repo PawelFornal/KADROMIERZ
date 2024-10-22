@@ -1,4 +1,4 @@
-import { loginField, passwordField, submitButton } from "cypress/selectors/loginPage.cy";
+import { forgottenPassword, loginField, newPasswordButton, passwordField, submitButton } from "cypress/selectors/loginPage.cy";
 
 describe("Login page in Kadromierz web-app", () => {
     it("I should successfully log in with valid credentials", () => {
@@ -10,5 +10,13 @@ describe("Login page in Kadromierz web-app", () => {
 
     it("I should successfully log in with valid credentials", () => {
         cy.login(Cypress.env("Login"), Cypress.env("Password"));
+    })
+
+    it("I can change my password", () => {
+        cy.visit('');
+        cy.get(forgottenPassword).click().then(() => {
+            cy.get(loginField).should('be.visible')
+            cy.get(newPasswordButton).should('be.visible')
+        })
     })
 })
