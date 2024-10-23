@@ -1,4 +1,4 @@
-import { forgottenPassword, loginField, newPasswordButton, passwordField, submitButton } from "cypress/selectors/loginPage.cy";
+import { forgottenPassword, loginField, newPasswordButton, passwordField, submitButton } from "cypress/support/selectors/loginPage";
 
 describe("Login page in Kadromierz web-app", () => {
     it("I should successfully log in with valid credentials", () => {

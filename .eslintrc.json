@@ -1,18 +1,29 @@
 {
-  "env": {
-    "cypress/globals": true
-  },
-  "parser": "@typescript-eslint/parser",
-  "plugins": ["@typescript-eslint", "cypress"],
-  "extends": [
-    "eslint:recommended",
-    "plugin:@typescript-eslint/eslint-recommended",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:prettier/recommended",
-    "prettier/@typescript-eslint",
-    "plugin:cypress/recommended"
-  ],
-  "rules": {
-    "no-var": "error"
-  }
+	"env": {
+		"cypress/globals": true,
+		"browser": true,
+		"node": true
+	},
+	"parser": "@typescript-eslint/parser",
+	"plugins": ["@typescript-eslint", "cypress"],
+	"extends": [
+		"eslint:recommended",
+		"plugin:@typescript-eslint/eslint-recommended",
+		"plugin:@typescript-eslint/recommended",
+		"plugin:prettier/recommended",
+		"prettier/@typescript-eslint",
+		"plugin:cypress/recommended"
+	],
+	"rules": {
+		"no-var": "error",
+		"no-unused-expressions": 0,
+		"func-names": 0,
+		"max-len": "off",
+		"default-param-last": 0,
+		"prefer-arrow-callback": "off",
+		"@typescript-eslint/no-var-requires": "off",
+		"import/prefer-default-export": 0,
+		"linebreak-style": ["error", "unix"],
+		"@typescript-eslint/no-unused-expressions": "error"
+	}
 }
