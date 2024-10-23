@@ -17,7 +17,8 @@
 import '@cypress/grep'
 import 'cypress-iframe'
 import 'cypress-xpath'
-import './commands'
+
+import './cy_commands/commands'
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')

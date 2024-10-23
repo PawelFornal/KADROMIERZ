@@ -1,9 +1,16 @@
 const { defineConfig } = require('cypress')
 
-module.exports = defineConfig({
+export default defineConfig({
 	env: {
 		Login: 'pawelfornal91@gmail.com',
 		Password: 'LaBm)}C^MMq6DhB',
+	},
+	reporter: 'mochawesome',
+	reporterOptions: {
+		reportDir: 'cypress/results/json_reports',
+		overwrite: false,
+		html: false,
+		json: true,
 	},
 	e2e: {
 		setupNodeEvents(on, config) {

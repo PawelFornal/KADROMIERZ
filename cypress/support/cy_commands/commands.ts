@@ -12,7 +12,7 @@
 // -- This is a parent command --
 // Cypress.Commands.add('login', (email, password) => { ... })
 
-import { loginField, passwordField, submitButton } from "cypress/selectors/loginPage.cy";
+import { loginField, passwordField, submitButton } from "cypress/support/selectors/loginPage";
 
 Cypress.Commands.add('login', (Login, Password) => {
     cy.visit('');
