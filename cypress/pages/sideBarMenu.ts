@@ -6,8 +6,8 @@ class SideBarMenu {
         cy.get(sideBarSelector.notificationIcon).eq(0)
     }
 
-    public getMenuExportIcon(): void {
-        cy.get(sideBarSelector.notificationIcon).eq(1)
+    public clickMenuExportIcon(): void {
+        cy.get(sideBarSelector.notificationIcon).eq(1).click('left')
     }
 
     public getMenuLogoutIcon(): void {
@@ -18,6 +18,9 @@ class SideBarMenu {
     }
     public clickScheduleIcon(): void {
         cy.get(sideBarSelector.scheduleIcon).click('left')
+    }
+    public clickCompanyManageIcon(): void {
+        cy.get(sideBarSelector.companyManageIcon).click('left')
     }
 }
 
