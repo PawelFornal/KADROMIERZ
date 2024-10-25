@@ -1,18 +1,6 @@
-// ***********************************************
-// This example commands.js shows you how to
-// create various custom commands and overwrite
-// existing commands.
-//
-// For more comprehensive examples of custom
-// commands please read more here:
-// https://on.cypress.io/custom-commands
-// ***********************************************
-//
-//
-// -- This is a parent command --
-// Cypress.Commands.add('login', (email, password) => { ... })
 
-import { loginField, passwordField, submitButton } from "cypress/support/selectors/loginPage";
+import CalendarPage from "cypress/pages/calendar";
+import { loginField, passwordField, submitButton } from "cypress/support/selectors/login_page";
 
 Cypress.Commands.add('login', (Login, Password) => {
     cy.visit('');
@@ -20,15 +8,7 @@ Cypress.Commands.add('login', (Login, Password) => {
     cy.get(passwordField).type(Password);
     cy.get(submitButton).click()
 })
-//
-//
-// -- This is a child command --
-// Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
-//
-//
-// -- This is a dual command --
-// Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })
-//
-//
-// -- This will overwrite an existing command --
-// Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+const calendar = new CalendarPage()
+Cypress.Commands.add('selectDateRange', (startDate: string, endDate: string) => {
+    calendar.selectDateRange({ startDate, endDate });
+});

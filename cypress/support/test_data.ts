@@ -14,3 +14,8 @@ export const randomString = (noOfCharacters: number): string => {
 
     return generatedRandomString;
 };
+
+export const POLISH_MONTHS = [
+    'styczeń', 'luty', 'marzec', 'kwiecień', 'maj', 'czerwiec',
+    'lipiec', 'sierpień', 'wrzesień', 'październik', 'listopad', 'grudzień'
+];
