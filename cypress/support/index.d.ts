@@ -12,6 +12,7 @@ declare namespace Cypress {
          */
         selectDateRange(startDate: string, endDate: string): Chainable<void>
         selectDateRangeReport(startDate: string, endDate: string): Chainable<void>
+        selectDateRangeAbsence(startDate: string, endDate: string): Chainable<void>
     }
 }
 declare namespace Cypress {
@@ -39,6 +40,11 @@ declare namespace Cypress {
             employeeName: string,
             dayToChange: string
         }): Chainable<Element>
+    }
+}
+declare namespace Cypress {
+    interface Chainable<Subject> {
+        selectFromDropdown(options: DropdownSelectOptions): Chainable<Element>
     }
 }
 

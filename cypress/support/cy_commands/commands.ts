@@ -1,7 +1,9 @@
 
 import { loginPage } from "cypress/support/selectors/login_page";
-import { datePickerReports, datePickerSelector } from "../helpers/date_picker";
+import { dropdownHelper } from "../helpers/absence_request";
+import { datePickerAbsence, datePickerReports, datePickerSelector } from "../helpers/date_picker";
 import { scheduleTable } from "../helpers/schedule";
+import { DropdownSelectOptions } from "../interfaces/Iabsence_requests";
 import { cookiesAcceptButton, cookiesBanner } from "../selectors/cookies";
 
 
@@ -29,6 +31,10 @@ Cypress.Commands.add('selectDateRangeReport', (startDate: string, endDate: strin
     datePickerSelector.selectDateRange(startDate, endDate, datePickerReports);
 });
 
+Cypress.Commands.add('selectDateRangeAbsence', (startDate: string, endDate: string) => {
+    datePickerSelector.selectDateRange(startDate, endDate, datePickerAbsence);
+});
+
 Cypress.Commands.add('selectEmployeSchedule', (options: {
     startDate: string,
     endDate: string,
@@ -38,4 +44,7 @@ Cypress.Commands.add('selectEmployeSchedule', (options: {
     scheduleTable.selectEmployeSchedule(options);
 });
 
+Cypress.Commands.add('selectFromDropdown', (options: DropdownSelectOptions) => {
+    dropdownHelper.selectFromDropdown(options);
+});
 

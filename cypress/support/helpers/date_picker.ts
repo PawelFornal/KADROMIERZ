@@ -11,6 +11,12 @@ export const datePickerReports: CalendarConfig = {
     picker: '#inputCalendar',
     closeButton: '[data-test="confirmButton"]'
 };
+
+export const datePickerAbsence: CalendarConfig = {
+    picker: '.k-calendarPopoverInput',
+    closeButton: '[data-test="confirmButton"]'
+};
+
 export const datePickerSelector = {
     validateDateRange(startDate: string, endDate: string): void {
         const [sDay, sMonth, sYear] = startDate.split('.').map(Number);
