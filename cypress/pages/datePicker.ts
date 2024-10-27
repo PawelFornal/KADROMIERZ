@@ -1,8 +1,9 @@
-import { calendarSelectors } from "cypress/support/selectors/calendar";
+import { calendarSelectors, headerFilters } from "cypress/support/selectors/scheduler_menu";
 
-class CalendarPage {
+
+class DatePickerPage {
     public getDatePicker() {
-        return cy.get(calendarSelectors.picker);
+        return cy.get(headerFilters.datePicker);
     }
 
     public getMonthYearPicker() {
@@ -42,4 +43,4 @@ class CalendarPage {
     }
 }
 
-export default CalendarPage;
+export default DatePickerPage;

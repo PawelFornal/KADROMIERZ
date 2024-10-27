@@ -19,4 +19,26 @@ declare namespace Cypress {
         acceptCookies(): Chainable<void>
     }
 }
+// declare namespace Cypress {
+//     interface Chainable<Subject> {
+//         /**
+//          * Custom command to find and click a cell in the schedule table
+//          * @param employeeName - The name of the employee whose schedule needs to be modified
+//          * @param dayText - The text of the day column where the cell should be clicked
+//          * @example
+//          * cy.findAndClickScheduleCell('Smith', 'śr 04.09')
+//          */
+//         findAndClickScheduleCell(employeeName: string, dayText: string): Chainable<Element>
+//     }
+// }
+declare namespace Cypress {
+    interface Chainable<Subject> {
+        selectEmployeSchedule(options: {
+            startDate: string,
+            endDate: string,
+            employeeName: string,
+            dayToChange: string
+        }): Chainable<Element>
+    }
+}
 

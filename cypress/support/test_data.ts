@@ -19,3 +19,11 @@ export const POLISH_MONTHS = [
     'styczeń', 'luty', 'marzec', 'kwiecień', 'maj', 'czerwiec',
     'lipiec', 'sierpień', 'wrzesień', 'październik', 'listopad', 'grudzień'
 ];
+
+// export const formatDateRange = (startDate: string, endDate: string) => {
+//     const formatSingleDate = (date: string) => {
+//         return date.split('.').slice(0, 2).join('.');
+//     };
+
+//     return `${formatSingleDate(startDate)} - ${formatSingleDate(endDate)}`;
+// };

@@ -5,6 +5,7 @@ export default defineConfig({
 		Login: 'pawelfornal91@gmail.com',
 		Password: 'LaBm)}C^MMq6DhB',
 		hideXHR: true,
+		deleteConfirm: 'POTWIERDZAM',
 	},
 	reporter: 'mochawesome',
 	reporterOptions: {

@@ -22,6 +22,9 @@ class SideBarMenu {
     public clickCompanyManageIcon(): void {
         cy.get(sideBarSelector.companyManageIcon).click('left')
     }
+    public clickAbsenceIcon(): void {
+        cy.get(sideBarSelector.absencesIcon).click('left')
+    }
 }
 
 export default SideBarMenu
