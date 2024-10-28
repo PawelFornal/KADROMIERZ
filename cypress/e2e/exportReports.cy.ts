@@ -1,4 +1,3 @@
-
 import ReportsPage from "cypress/pages/ExportReports";
 import SideBarMenu from "cypress/pages/SideBarMenu";
 import { REPORTS } from "cypress/support/test_data";
