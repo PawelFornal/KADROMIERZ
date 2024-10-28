@@ -1,9 +1,11 @@
 import AbsencePage from "cypress/pages/AbsencePage";
+import { DatePickerPage } from "cypress/pages/DatePickerPage";
 import SideBarMenu from "cypress/pages/SideBarPage";
 
 
 const sideBarMenu = new SideBarMenu();
 const absencePage = new AbsencePage();
+const datePicker = new DatePickerPage();
 
 const absenceData = {
     labelEmployee: 'Pracownik',
@@ -31,7 +33,7 @@ describe("Add absence request", () => {
             label: absenceData.labelType,
             value: absenceData.absenceType
         });
-        cy.selectDateRangeAbsence(absenceData.start, absenceData.end);
+        datePicker.selectAbsenceDateRange(absenceData.start, absenceData.end);
         absencePage.checkAbsenceRequestSubmitted(absenceData.employeeName)
             .should('be.visible');
         absencePage.clickOnAcceptRequestButton(absenceData.employeeName, absenceData.options);

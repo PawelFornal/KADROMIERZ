@@ -12,12 +12,22 @@ class SchedulerPage {
     public clickCloseButton(): void {
         cy.get(employeeSelector.confirmButton).click()
     }
+    public verifyChanges(employeeName: string): Cypress.Chainable<any> {
+        return cy.contains(tableSchedule.rowEmployeeName, employeeName)
+            .parents(tableSchedule.tableRow)
+            .find(tableSchedule.block)
+            .then($block => {
+                cy.wrap($block)
+                    .find(tableSchedule.blockContainer)
+                    .invoke('css', 'display', 'block')
+                    .find(tableSchedule.blockDeleteIcon)
+            })
+    }
     public clickDeleteSchedule(employeeName: string): void {
         cy.contains(tableSchedule.rowEmployeeName, employeeName)
             .parents(tableSchedule.tableRow)
             .find(tableSchedule.block)
             .then($block => {
-                // Zmiana CSS aby pokazać kontener ikon
                 cy.wrap($block)
                     .find(tableSchedule.blockContainer)
                     .invoke('css', 'display', 'block')

@@ -1,5 +1,6 @@
-import AddEmployee from "cypress/pages/AddEmployee";
-import SideBarMenu from "cypress/pages/SideBarMenu";
+
+import AddEmployee from "cypress/pages/AddEmployeePage";
+import SideBarMenu from "cypress/pages/SideBarPage";
 import { randomString } from "cypress/support/test_data";
 
 const testData = {

@@ -1,7 +1,31 @@
+import { CalendarConfig } from "cypress/support/interfaces/ICalendar";
 import { calendarSelectors, headerFilters } from "cypress/support/selectors/schedulerMenu";
+import { datePickerAbsence, datePickerReports, datePickerSelector, datePickerWorkSchedule } from "cypress/support/utils/datePicker";
 
 
-class DatePickerPage {
+export class DatePickerPage {
+    private readonly datePicker = datePickerSelector;
+
+    selectDateRange(
+        startDate: string,
+        endDate: string,
+        config: CalendarConfig = datePickerWorkSchedule
+    ) {
+        return this.datePicker.selectDateRange(startDate, endDate, config);
+    }
+
+    selectWorkScheduleDateRange(startDate: string, endDate: string): void {
+        this.selectDateRange(startDate, endDate, datePickerWorkSchedule);
+    }
+
+    selectReportDateRange(startDate: string, endDate: string): void {
+        this.selectDateRange(startDate, endDate, datePickerReports);
+    }
+
+    selectAbsenceDateRange(startDate: string, endDate: string): void {
+        this.selectDateRange(startDate, endDate, datePickerAbsence);
+    }
+
     public getDatePicker() {
         return cy.get(headerFilters.datePicker);
     }
@@ -43,4 +67,3 @@ class DatePickerPage {
     }
 }
 
-export default DatePickerPage;

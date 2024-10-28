@@ -1,10 +1,15 @@
+import { DatePickerPage } from "cypress/pages/DatePickerPage";
 import SchedulerPage from "cypress/pages/SchedulerPage";
-import SideBarMenu from "cypress/pages/SideBarMenu";
+import { ScheduleTablePage } from "cypress/pages/ScheduleTablePage";
+import SideBarMenu from "cypress/pages/SideBarPage";
+
 
 
 
 const sideBarMenu = new SideBarMenu();
 const schedulePage = new SchedulerPage();
+const datePicker = new DatePickerPage();
+const scheduleTable = new ScheduleTablePage();
 
 const testData = {
     start: '02.09.2024',
@@ -20,18 +25,20 @@ describe('Change employee scheduler', () => {
     });
     it('It should be possible to make changes in employee scheduler', () => {
         sideBarMenu.clickScheduleIcon();
-        cy.selectDateRange(testData.start, testData.end);
-        cy.selectEmployeSchedule({
+        datePicker.selectWorkScheduleDateRange(testData.start, testData.end);
+        scheduleTable.selectSchedule({
             startDate: testData.start,
             endDate: testData.end,
             employeeName: testData.employeeName,
             dayToChange: testData.dayToChange
         });
         schedulePage.selectWorkingHours(testData.hours);
+        schedulePage.verifyChanges(testData.employeeName)
+            .should('be.visible');
     });
     afterEach(() => {
         sideBarMenu.clickScheduleIcon();
-        cy.selectDateRange(testData.start, testData.end);
+        datePicker.selectWorkScheduleDateRange(testData.start, testData.end);
         schedulePage.clickDeleteSchedule(testData.employeeName);
 
     })
