@@ -1,6 +1,7 @@
 import AbsencePage from "cypress/pages/Absences";
 import SideBarMenu from "cypress/pages/SideBarMenu";
 
+
 const sideBarMenu = new SideBarMenu();
 const absencePage = new AbsencePage();
 
