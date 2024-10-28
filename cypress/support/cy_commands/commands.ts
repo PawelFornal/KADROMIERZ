@@ -1,34 +1,55 @@
-// ***********************************************
-// This example commands.js shows you how to
-// create various custom commands and overwrite
-// existing commands.
-//
-// For more comprehensive examples of custom
-// commands please read more here:
-// https://on.cypress.io/custom-commands
-// ***********************************************
-//
-//
-// -- This is a parent command --
-// Cypress.Commands.add('login', (email, password) => { ... })
 
-import { loginField, passwordField, submitButton } from "cypress/support/selectors/loginPage";
+import { loginPage } from "cypress/support/selectors/loginPage";
+import { DropdownSelectOptions } from "../interfaces/IAbsenceRequests";
+import { cookiesAcceptButton, cookiesBanner } from "../selectors/cookies";
+import { ReportName } from "../test_data";
+import { datePickerAbsence, datePickerReports, datePickerSelector } from "../utils/datePicker";
+import { dropdownHelper } from "../utils/dropdownList";
+import { reportsFinder } from "../utils/reportsFinder";
+import { scheduleTable } from "../utils/scheduleTable";
 
-Cypress.Commands.add('login', (Login, Password) => {
+
+Cypress.Commands.add('acceptCookies', () => {
+    cy.get(cookiesAcceptButton)
+        .click({ force: true })
+        .then(() => {
+            cy.get(cookiesBanner).should('not.be.visible');
+        });
+});
+
+Cypress.Commands.add('login', (login, password) => {
     cy.visit('');
-    cy.get(loginField).type(Login);
-    cy.get(passwordField).type(Password);
-    cy.get(submitButton).click()
+    cy.get(loginPage.loginField).type(login, { force: true });
+    cy.get(loginPage.passwordField).type(password, { force: true });
+    cy.get(loginPage.submitButton).click({ force: true });
+    // cy.acceptCookies();
+});
+
+Cypress.Commands.add('selectDateRange', (startDate: string, endDate: string) => {
+    datePickerSelector.selectDateRange(startDate, endDate);
+});
+
+Cypress.Commands.add('selectDateRangeReport', (startDate: string, endDate: string) => {
+    datePickerSelector.selectDateRange(startDate, endDate, datePickerReports);
+});
+
+Cypress.Commands.add('selectDateRangeAbsence', (startDate: string, endDate: string) => {
+    datePickerSelector.selectDateRange(startDate, endDate, datePickerAbsence);
+});
+
+Cypress.Commands.add('selectEmployeSchedule', (options: {
+    startDate: string,
+    endDate: string,
+    employeeName: string,
+    dayToChange: string,
+}) => {
+    scheduleTable.selectEmployeSchedule(options);
+});
+
+Cypress.Commands.add('selectDropdownElement', (options: DropdownSelectOptions) => {
+    dropdownHelper.selectDropdownElement(options);
+});
+
+Cypress.Commands.add('generateReport', (reportName: ReportName) => {
+    reportsFinder.selectAndGenerateReport(reportName);
 })
-//
-//
-// -- This is a child command --
-// Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
-//
-//
-// -- This is a dual command --
-// Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })
-//
-//
-// -- This will overwrite an existing command --
-// Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })

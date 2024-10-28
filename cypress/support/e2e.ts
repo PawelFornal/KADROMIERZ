@@ -14,11 +14,20 @@
 // ***********************************************************
 
 // Import commands.js using ES2015 syntax:
-import '@cypress/grep'
-import 'cypress-iframe'
-import 'cypress-xpath'
+import '@cypress/grep';
+import 'cypress-iframe';
+import 'cypress-xpath';
 
-import './cy_commands/commands'
+import './cy_commands/commands';
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
+if (Cypress.env('hideXHR')) {
+    const app = window.top as any;
+    if (app && !app.document.head.querySelector('[data-hide-command-log-request]')) {
+        const style = app.document.createElement('style');
+        style.innerHTML = '.command-name-request, .command-name-xhr { display: none }';
+        style.setAttribute('data-hide-command-log-request', '');
+        app.document.head.appendChild(style);
+    }
+}
