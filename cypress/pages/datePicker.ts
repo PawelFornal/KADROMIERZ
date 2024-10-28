@@ -1,4 +1,4 @@
-import { calendarSelectors, headerFilters } from "cypress/support/selectors/scheduler_menu";
+import { calendarSelectors, headerFilters } from "cypress/support/selectors/schedulerMenu";
 
 
 class DatePickerPage {

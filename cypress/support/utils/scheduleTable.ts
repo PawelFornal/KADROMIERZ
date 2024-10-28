@@ -1,4 +1,4 @@
-import { tableSchedule } from "../selectors/scheduler_menu";
+import { tableSchedule } from "../selectors/schedulerMenu";
 
 export const scheduleTable = {
     selectEmployeSchedule: (options: {

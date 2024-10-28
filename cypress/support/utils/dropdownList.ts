@@ -1,7 +1,7 @@
-import { DropdownSelectOptions } from "../interfaces/Iabsence_requests";
+import { DropdownSelectOptions } from "../interfaces/IAbsenceRequests";
 
 export const dropdownHelper = {
-    selectFromDropdown: (options: DropdownSelectOptions) => {
+    selectDropdownElement: (options: DropdownSelectOptions) => {
         const { label, value } = options;
 
         // Znajdujemy właściwy dropdown po etykiecie

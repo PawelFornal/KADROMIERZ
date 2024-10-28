@@ -1,5 +1,5 @@
-import ReportsPage from "cypress/pages/exportReports";
-import SideBarMenu from "cypress/pages/sideBarMenu";
+import ReportsPage from "cypress/pages/ExportReports";
+import SideBarMenu from "cypress/pages/SideBarMenu";
 import { REPORTS } from "cypress/support/test_data";
 
 const sideBarMenu = new SideBarMenu();
@@ -15,7 +15,6 @@ const testData = {
 describe("Download a working time report", () => {
     it("It should be possible to go to exports and generate working time report", () => {
         cy.login(Cypress.env("Login"), Cypress.env("Password"));
-        cy.wait(30000)
         sideBarMenu.clickMenuExportIcon()
         cy.generateReport(REPORTS.SUMMARY_TIME_REPORT)
         cy.selectDateRangeReport(testData.start, testData.end);

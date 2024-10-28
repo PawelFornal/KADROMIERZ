@@ -13,3 +13,6 @@ export const sideBarSelector = {
     logoutIcon: 'a[href="/logout"]',
     helpIcon: 'a[href*="pomoc.kadromierz.pl"]'
 };
+export const mainPageSelector = {
+    welcomeHeader: '.dashboardTopBar',
+}

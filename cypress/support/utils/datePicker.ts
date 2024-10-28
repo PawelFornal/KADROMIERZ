@@ -1,20 +1,23 @@
-import { CalendarConfig } from "../interfaces/Icalendar";
-import { calendarSelectors, headerFilters } from "../selectors/scheduler_menu";
+import { CalendarConfig } from "../interfaces/ICalendar";
+import { absencesSelectors } from "../selectors/absences";
+import { employeeSelector } from "../selectors/companyManage";
+import { reportSelectors } from "../selectors/exportReports";
+import { calendarSelectors, headerFilters } from "../selectors/schedulerMenu";
 import { POLISH_MONTHS } from "../test_data";
 
-export const datePicker: CalendarConfig = {
+export const datePickerWorkSchedule: CalendarConfig = {
     picker: headerFilters.datePicker,
     closeButton: calendarSelectors.closeButton
 };
 
 export const datePickerReports: CalendarConfig = {
-    picker: '#inputCalendar',
-    closeButton: '[data-test="confirmButton"]'
+    picker: reportSelectors.calendarField,
+    closeButton: employeeSelector.confirmButton
 };
 
 export const datePickerAbsence: CalendarConfig = {
-    picker: '.k-calendarPopoverInput',
-    closeButton: '[data-test="confirmButton"]'
+    picker: absencesSelectors.calendarField,
+    closeButton: employeeSelector.confirmButton
 };
 
 export const datePickerSelector = {
@@ -44,6 +47,7 @@ export const datePickerSelector = {
         });
     },
 
+
     selectDate(dateStr: string): void {
         const [day, month, year] = dateStr.split('.');
         const monthName = POLISH_MONTHS[parseInt(month) - 1];
@@ -56,15 +60,13 @@ export const datePickerSelector = {
             .contains(day.replace(/^0/, ''))
             .click({ force: true });
     },
-    selectDateRange(startDate: string, endDate: string, config: CalendarConfig = datePicker): void {
+    selectDateRange(startDate: string, endDate: string, config: CalendarConfig = datePickerWorkSchedule): void {
         this.validateDateRange(startDate, endDate);
         cy.get(config.picker).click();
-
         this.navigateToMonth(startDate);
         this.selectDate(startDate);
         this.navigateToMonth(endDate);
         this.selectDate(endDate);
-
         cy.get(config.closeButton).click({ force: true });
     }
 }

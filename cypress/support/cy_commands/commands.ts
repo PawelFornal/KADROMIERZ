@@ -1,12 +1,12 @@
 
-import { loginPage } from "cypress/support/selectors/login_page";
-import { dropdownHelper } from "../helpers/absence_request";
-import { datePickerAbsence, datePickerReports, datePickerSelector } from "../helpers/date_picker";
-import { reportsFinder } from "../helpers/reports";
-import { scheduleTable } from "../helpers/schedule";
-import { DropdownSelectOptions } from "../interfaces/Iabsence_requests";
+import { loginPage } from "cypress/support/selectors/loginPage";
+import { DropdownSelectOptions } from "../interfaces/IAbsenceRequests";
 import { cookiesAcceptButton, cookiesBanner } from "../selectors/cookies";
 import { ReportName } from "../test_data";
+import { datePickerAbsence, datePickerReports, datePickerSelector } from "../utils/datePicker";
+import { dropdownHelper } from "../utils/dropdownList";
+import { reportsFinder } from "../utils/reportsFinder";
+import { scheduleTable } from "../utils/scheduleTable";
 
 
 Cypress.Commands.add('acceptCookies', () => {
@@ -17,10 +17,10 @@ Cypress.Commands.add('acceptCookies', () => {
         });
 });
 
-Cypress.Commands.add('login', (Login, Password) => {
+Cypress.Commands.add('login', (login, password) => {
     cy.visit('');
-    cy.get(loginPage.loginField).type(Login, { force: true });
-    cy.get(loginPage.passwordField).type(Password, { force: true });
+    cy.get(loginPage.loginField).type(login, { force: true });
+    cy.get(loginPage.passwordField).type(password, { force: true });
     cy.get(loginPage.submitButton).click({ force: true });
     // cy.acceptCookies();
 });
@@ -46,10 +46,10 @@ Cypress.Commands.add('selectEmployeSchedule', (options: {
     scheduleTable.selectEmployeSchedule(options);
 });
 
-Cypress.Commands.add('selectFromDropdown', (options: DropdownSelectOptions) => {
-    dropdownHelper.selectFromDropdown(options);
+Cypress.Commands.add('selectDropdownElement', (options: DropdownSelectOptions) => {
+    dropdownHelper.selectDropdownElement(options);
 });
 
 Cypress.Commands.add('generateReport', (reportName: ReportName) => {
-    reportsFinder.selectReport(reportName);
+    reportsFinder.selectAndGenerateReport(reportName);
 })

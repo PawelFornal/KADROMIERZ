@@ -6,7 +6,8 @@ export const calendarSelectors = {
     dayCell: '.rdrDay',
     closeButton: '.k-topBarCalendar__close',
     dateText: '.k-topBarCalendar__dateText',
-    inactiveDayCell: '.rdrDayPassive'
+    inactiveDayCell: '.rdrDayPassive',
+    
 };
 
 export const headerFilters = {

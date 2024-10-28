@@ -7,25 +7,30 @@ export default defineConfig({
 		hideXHR: true,
 		deleteConfirm: 'POTWIERDZAM',
 	},
-	reporter: 'mochawesome',
-	reporterOptions: {
-		reportDir: 'cypress/results/json_reports',
-		overwrite: false,
-		html: false,
-		json: true,
-	},
 	e2e: {
-		setupNodeEvents(on, config) {
-			// implement node event listeners here
+		reporter: 'mochawesome',
+		reporterOptions: {
+			reportDir: 'cypress/results/json_reports',
+			overwrite: false,
+			html: false,
+			json: true,
+			screenshotsFolder: 'cypress/results/screenshots',
+			attachments: true,
 		},
+		screenshotOnRunFailure: true,
+		video: false, // wyłączenie nagrywania video
 		specPattern: 'cypress/e2e/**/*.{js,jsx,ts,tsx,feature}',
 		baseUrl: 'https://app.kadromierz.pl/',
 		supportFile: 'cypress/support/e2e.ts',
-		defaultCommandTimeout: 10000, // domyślny timeout dla komend
-		pageLoadTimeout: 30000, // timeout ładowania strony
-		requestTimeout: 10000, // timeout dla requestów
-		responseTimeout: 30000, // timeout dla odpowiedzi
-		execTimeout: 60000, // timeout dla exec komend
-		taskTimeout: 60000, // timeout dla task
+		defaultCommandTimeout: 15000,
+		pageLoadTimeout: 30000,
+		requestTimeout: 10000,
+		responseTimeout: 30000,
+		execTimeout: 60000,
+		taskTimeout: 60000,
+		retries: {
+			runMode: 2,
+			openMode: 1,
+		},
 	},
 })

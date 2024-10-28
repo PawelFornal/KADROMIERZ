@@ -1,5 +1,5 @@
-import { employeeSelector } from "cypress/support/selectors/company_manage";
-import { reportSelectors } from "cypress/support/selectors/export_reports";
+import { employeeSelector } from "cypress/support/selectors/companyManage";
+import { reportSelectors } from "cypress/support/selectors/exportReports";
 
 class ReportsPage {
     clickClearEmployeeFilter(): void {

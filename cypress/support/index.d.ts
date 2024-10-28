@@ -33,7 +33,7 @@ declare namespace Cypress {
 }
 declare namespace Cypress {
     interface Chainable<Subject> {
-        selectFromDropdown(options: DropdownSelectOptions): Chainable<Element>
+        selectDropdownElement(options: DropdownSelectOptions): Chainable<Element>
     }
 }
 

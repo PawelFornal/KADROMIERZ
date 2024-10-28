@@ -1,5 +1,5 @@
-import { employeeSelector } from "cypress/support/selectors/company_manage";
-import { changesModal, tableSchedule } from "cypress/support/selectors/scheduler_menu";
+import { employeeSelector } from "cypress/support/selectors/companyManage";
+import { changesModal, tableSchedule } from "cypress/support/selectors/schedulerMenu";
 
 class SchedulerPage {
     public clickOnWorkingHours(): void {

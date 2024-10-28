@@ -1,4 +1,4 @@
-import { loginPage } from "cypress/support/selectors/login_page";
+import { loginPage } from "cypress/support/selectors/loginPage";
 
 class loginPagePO {
     public clickForgotPassword(): void {

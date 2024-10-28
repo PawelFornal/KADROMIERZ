@@ -1,7 +1,5 @@
-import SchedulerPage from "cypress/pages/schedulerMenu";
-import SideBarMenu from "cypress/pages/sideBarMenu";
-import { employeeSelector } from "cypress/support/selectors/company_manage";
-import { tableSchedule } from "cypress/support/selectors/scheduler_menu";
+import SchedulerPage from "cypress/pages/SchedulerPage";
+import SideBarMenu from "cypress/pages/SideBarMenu";
 
 
 
@@ -17,8 +15,10 @@ const testData = {
 
 }
 describe('Change employee scheduler', () => {
-    it('It should be possible to make changes in employee scheduler', () => {
+    beforeEach(() => {
         cy.login(Cypress.env("Login"), Cypress.env("Password"));
+    });
+    it('It should be possible to make changes in employee scheduler', () => {
         sideBarMenu.clickScheduleIcon();
         cy.selectDateRange(testData.start, testData.end);
         cy.selectEmployeSchedule({

@@ -1,5 +1,5 @@
-import AbsencePage from "cypress/pages/absences";
-import SideBarMenu from "cypress/pages/sideBarMenu";
+import AbsencePage from "cypress/pages/Absences";
+import SideBarMenu from "cypress/pages/SideBarMenu";
 
 const sideBarMenu = new SideBarMenu();
 const absencePage = new AbsencePage();
@@ -16,21 +16,26 @@ const absenceData = {
 }
 
 describe("Add absence request", () => {
-    it("It should be possible to add new absence request and accept it ", () => {
+    beforeEach(() => {
         cy.login(Cypress.env("Login"), Cypress.env("Password"));
+    });
+    it("It should be possible to add new absence request and accept it ", () => {
         sideBarMenu.clickAbsenceIcon();
         absencePage.clickOnAddAbsenceButton();
-        cy.selectFromDropdown({
+        cy.selectDropdownElement({
             label: absenceData.labelEmployee,
             value: absenceData.employeeName
         });
-        cy.selectFromDropdown({
+        cy.selectDropdownElement({
             label: absenceData.labelType,
             value: absenceData.absenceType
         });
         cy.selectDateRangeAbsence(absenceData.start, absenceData.end);
+        absencePage.checkAbsenceRequestSubmitted(absenceData.employeeName)
+            .should('be.visible');
         absencePage.clickOnAcceptRequestButton(absenceData.employeeName, absenceData.options);
     });
+
     afterEach(() => {
         sideBarMenu.clickAbsenceIcon();
         absencePage.findAbsenceTable().should('be.visible');

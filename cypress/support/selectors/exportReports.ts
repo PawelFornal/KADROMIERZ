@@ -11,4 +11,5 @@ export const reportSelectors = {
     historyHeader: 'a[class="k-tabNav__routeLink"][href="/exports/history"]',
     generatedFilesList: '.k-exportItem',
     downloadButton: '.k-exportItem__downloadButton',
+    calendarField: '#inputCalendar',
 }

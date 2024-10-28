@@ -1,4 +1,4 @@
-import { sideBarSelector } from "cypress/support/selectors/side_bar_main_menu";
+import { sideBarSelector } from "cypress/support/selectors/mainPage";
 
 class SideBarMenu {
 

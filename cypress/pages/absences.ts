@@ -1,12 +1,14 @@
 import { absencesSelectors } from "cypress/support/selectors/absences";
-import { employeeSelector } from "cypress/support/selectors/company_manage";
+import { employeeSelector } from "cypress/support/selectors/companyManage";
 
 class AbsencePage {
 
     public clickOnAddAbsenceButton(): void {
         cy.get(absencesSelectors.addAbsenceButton).click()
     }
-
+    public checkAbsenceRequestSubmitted(employeeName: string): Cypress.Chainable<any> {
+        return cy.scrollTo('top').contains(absencesSelectors.employeeFinder, employeeName)
+    }
     public clickOnAcceptRequestButton(employeeName: string, options: string): void {
         cy.scrollTo('top');
         cy.contains(absencesSelectors.employeeFinder, employeeName)

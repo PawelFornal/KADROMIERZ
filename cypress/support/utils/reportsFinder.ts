@@ -1,7 +1,7 @@
-import { reportSelectors } from "../selectors/export_reports"
+import { reportSelectors } from "../selectors/exportReports"
 
 export const reportsFinder = {
-    selectReport(reportName: string) {
+    selectAndGenerateReport(reportName: string) {
         return cy.contains(reportSelectors.reportList, reportName)
             .should('be.visible')
             .within(() => {

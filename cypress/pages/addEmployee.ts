@@ -1,12 +1,18 @@
-import { employeeSelector, newEmployee } from "cypress/support/selectors/company_manage";
+import { employeeSelector, newEmployee } from "cypress/support/selectors/companyManage";
 
 class AddEmployee {
     public clickAddEmployeeButton(): void {
-        cy.get(employeeSelector.addEmployeeButton).click()
+        cy.get(employeeSelector.addEmployeeButton).should('be.visible').click()
+    }
+    public addEmployeeFirstName(firstName: string): void {
+        cy.get(newEmployee.firstName).type(firstName)
+    }
+    public addEmployeeLastName(lastName: string): void {
+        cy.get(newEmployee.lastName).type(lastName)
     }
     public addEmployeeCredentials(firstName: string, lastName: string): void {
-        cy.get(newEmployee.firstName).type(firstName)
-        cy.get(newEmployee.lastName).type(lastName)
+        this.addEmployeeFirstName(firstName)
+        this.addEmployeeLastName(lastName)
     }
     public clickLocationTab(): void {
         cy.get(newEmployee.locationTab).click()
@@ -36,6 +42,9 @@ class AddEmployee {
     }
     public clickOnSaveButton(): void {
         cy.get(employeeSelector.confirmButton).click()
+    }
+    public checkAddedEmployee(lastName: string): Cypress.Chainable<any> {
+        return cy.get(employeeSelector.employeeNameColumn)
     }
     public deleteAddedEmployee(lastName: string): void {
         cy.get(employeeSelector.employeeNameColumn)

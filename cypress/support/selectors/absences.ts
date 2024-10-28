@@ -13,5 +13,6 @@ export const absencesSelectors = {
     dropdownOptionByText: (optionName: string) => `.k-dropdownMenu__button .k-dropdownMenu__title:contains("${optionName}")`,
     cancelButton: '[data-test="cancelButton"]',
     removeRequest: 'button.mdKadroModalFooterAction',
+    calendarField: '.k-calendarPopoverInput',
 
 }
