@@ -45,4 +45,3 @@ class ReportsPage {
     }
 }
 export default ReportsPage;
-test
