@@ -1,6 +1,6 @@
 import { loginPage } from "cypress/support/selectors/loginPage";
 
-class loginPagePO {
+class LoginPage {
     public clickForgotPassword(): void {
         cy.get(loginPage.forgottenPassword).click();
     }
@@ -17,4 +17,4 @@ class loginPagePO {
         cy.get(loginPage.rememberMeCheckBox).uncheck();
     }
 }
-export default loginPagePO
+export default LoginPage

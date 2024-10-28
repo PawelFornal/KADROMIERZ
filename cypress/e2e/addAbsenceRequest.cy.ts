@@ -1,5 +1,6 @@
-import AbsencePage from "cypress/pages/Absences";
-import SideBarMenu from "cypress/pages/SideBarMenu";
+import AbsencePage from "cypress/pages/AbsencePage";
+import SideBarMenu from "cypress/pages/SideBarPage";
+
 
 const sideBarMenu = new SideBarMenu();
 const absencePage = new AbsencePage();
@@ -13,7 +14,6 @@ const absenceData = {
     end: '11.11.2024',
     options: 'Szczegóły wniosku',
     remove: 'Usuń wniosek',
-    TEST: 'TEST'
 }
 
 describe("Add absence request", () => {
