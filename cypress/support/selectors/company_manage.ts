@@ -13,8 +13,9 @@ export const employeeSelector = {
     addEmployeeButton: '.k-buttonBar__containerLeft',
     optionsTableHeader: '[data-test="optionsTableHeader"]',
     employeeNameColumn: '.col_fullname',
-    deleteEmployee: (firstName: string) => `td[data-test*=${firstName}] .delete`,
+    deleteEmployee: (firstName: string) => `td[data-test*=${firstName.toLowerCase()}] .delete`,
     confirmButton: 'button[data-test="confirmButton"]',
+    deleteTextField: '#delete',
 
 }
 export const newEmployee = {

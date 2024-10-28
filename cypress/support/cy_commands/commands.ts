@@ -2,9 +2,11 @@
 import { loginPage } from "cypress/support/selectors/login_page";
 import { dropdownHelper } from "../helpers/absence_request";
 import { datePickerAbsence, datePickerReports, datePickerSelector } from "../helpers/date_picker";
+import { reportsFinder } from "../helpers/reports";
 import { scheduleTable } from "../helpers/schedule";
 import { DropdownSelectOptions } from "../interfaces/Iabsence_requests";
 import { cookiesAcceptButton, cookiesBanner } from "../selectors/cookies";
+import { ReportName } from "../test_data";
 
 
 Cypress.Commands.add('acceptCookies', () => {
@@ -20,7 +22,7 @@ Cypress.Commands.add('login', (Login, Password) => {
     cy.get(loginPage.loginField).type(Login, { force: true });
     cy.get(loginPage.passwordField).type(Password, { force: true });
     cy.get(loginPage.submitButton).click({ force: true });
-    cy.acceptCookies();
+    // cy.acceptCookies();
 });
 
 Cypress.Commands.add('selectDateRange', (startDate: string, endDate: string) => {
@@ -48,3 +50,6 @@ Cypress.Commands.add('selectFromDropdown', (options: DropdownSelectOptions) => {
     dropdownHelper.selectFromDropdown(options);
 });
 
+Cypress.Commands.add('generateReport', (reportName: ReportName) => {
+    reportsFinder.selectReport(reportName);
+})

@@ -1,20 +1,20 @@
-import { createAccount, forgottenPassword, loginWithGoogle, rememberMeCheckBox } from "cypress/support/selectors/login_page";
+import { loginPage } from "cypress/support/selectors/login_page";
 
 class loginPagePO {
     public clickForgotPassword(): void {
-        cy.get(forgottenPassword).click();
+        cy.get(loginPage.forgottenPassword).click();
     }
     public clickLoginViaGoogle(): void {
-        cy.get(loginWithGoogle).click();
+        cy.get(loginPage.loginWithGoogle).click();
     }
     public clickRegisterAccount(): void {
-        cy.get(createAccount).click();
+        cy.get(loginPage.createAccount).click();
     }
     public checkRememberMeCheckbox(): void {
-        cy.get(rememberMeCheckBox).check();
+        cy.get(loginPage.rememberMeCheckBox).check();
     }
     public unCheckRememberMeCheckbox(): void {
-        cy.get(rememberMeCheckBox).uncheck();
+        cy.get(loginPage.rememberMeCheckBox).uncheck();
     }
 }
 export default loginPagePO

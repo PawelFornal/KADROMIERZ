@@ -1,5 +1,7 @@
 import SchedulerPage from "cypress/pages/schedulerMenu";
 import SideBarMenu from "cypress/pages/sideBarMenu";
+import { employeeSelector } from "cypress/support/selectors/company_manage";
+import { tableSchedule } from "cypress/support/selectors/scheduler_menu";
 
 
 
@@ -25,7 +27,12 @@ describe('Change employee scheduler', () => {
             employeeName: testData.employeeName,
             dayToChange: testData.dayToChange
         });
-        schedulePage.selectWorkingHours().type(testData.hours);
-        schedulePage.clickCloseButton();
+        schedulePage.selectWorkingHours(testData.hours);
     });
+    afterEach(() => {
+        sideBarMenu.clickScheduleIcon();
+        cy.selectDateRange(testData.start, testData.end);
+        schedulePage.clickDeleteSchedule(testData.employeeName);
+
+    })
 });

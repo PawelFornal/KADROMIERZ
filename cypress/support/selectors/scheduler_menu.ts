@@ -28,7 +28,11 @@ export const tableSchedule = {
     rowEmployeeName: '.k-scheduleTableRowTitle__title',
     fieldToChange: 'td.scheduleTableSingleDayItem > div[role="presentation"].k-singleDayRow__addLayer',
     tableRow: 'tr.scheduleTable__row',
-    headerDay: 'thead .scheduleTableHeader__day'
+    headerDay: 'thead .scheduleTableHeader__day',
+    block: '.k-scheduleBlock',
+    blockContainer: '.k-scheduleBlock__iconContainer',
+    blockDeleteIcon: '.k-scheduleBlock__icon--delete',
+
 
 }
 export const changesModal = {
