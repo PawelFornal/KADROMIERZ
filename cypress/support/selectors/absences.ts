@@ -14,5 +14,6 @@ export const absencesSelectors = {
     cancelButton: '[data-test="cancelButton"]',
     removeRequest: 'button.mdKadroModalFooterAction',
     calendarField: '.k-calendarPopoverInput',
+    confirmAbsenceRequetField: 'div[class="mdChip mdChip--green"]',
 
 }

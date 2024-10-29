@@ -26,7 +26,7 @@ class AbsencePage {
     public getConfirmationAbsenceRequest(employeeName: string): Cypress.Chainable<any> {
         return cy.scrollTo('top').contains(absencesSelectors.employeeFinder, employeeName)
             .closest(absencesSelectors.tableRow)
-            .find('div[class="mdChip mdChip--green"]')
+            .find(absencesSelectors.confirmAbsenceRequetField)
             .scrollIntoView()
     }
 
