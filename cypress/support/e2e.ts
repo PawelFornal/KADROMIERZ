@@ -15,9 +15,9 @@
 
 // Import commands.js using ES2015 syntax:
 import '@cypress/grep';
+import 'cypress-downloadfile/lib/downloadFileCommand';
 import 'cypress-iframe';
 import 'cypress-xpath';
-
 import './cy_commands/commands';
 
 // Alternatively you can use CommonJS syntax:

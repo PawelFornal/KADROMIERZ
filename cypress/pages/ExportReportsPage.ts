@@ -37,8 +37,8 @@ class ReportsPage {
     clickOnHistoryHeader(): void {
         cy.get(reportSelectors.historyHeader).click()
     }
-    findGeneratedReport(start: string, end: string) {
-        cy.get(reportSelectors.generatedFilesList)
+    findGeneratedReport(start: string, end: string): Cypress.Chainable<any> {
+        return cy.get(reportSelectors.generatedFilesList)
             .filter(`:contains("${start} - ${end}")`)
             .first()
             .find(reportSelectors.downloadButton)

@@ -16,10 +16,15 @@ declare namespace Cypress {
     }
 }
 
-
 declare namespace Cypress {
     interface Chainable {
         generateReport(reportName: ReportName): Chainable<void>
+    }
+}
+
+namespace Cypress {
+    interface Chainable {
+        compareExcelFiles(templatePath: string, downloadedFilePattern: string): void;
     }
 }
 

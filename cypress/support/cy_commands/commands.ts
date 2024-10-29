@@ -3,6 +3,7 @@ import { loginPage } from "cypress/support/selectors/loginPage";
 import { DropdownSelectOptions } from "../interfaces/IAbsenceRequests";
 import { cookiesAcceptButton, cookiesBanner } from "../selectors/cookies";
 import { ReportName } from "../test_data";
+import { compareExcelFiles } from "../utils/compareExcelFiles";
 import { dropdownHelper } from "../utils/dropdownList";
 import { reportsFinder } from "../utils/reportsFinder";
 
@@ -30,3 +31,9 @@ Cypress.Commands.add('selectDropdownElement', (options: DropdownSelectOptions) =
 Cypress.Commands.add('generateReport', (reportName: ReportName) => {
     reportsFinder.selectAndGenerateReport(reportName);
 })
+
+Cypress.Commands.add('compareExcelFiles', (templatePath: string, downloadedFilePattern: string): void => {
+    compareExcelFiles(templatePath, downloadedFilePattern);
+});
+
+

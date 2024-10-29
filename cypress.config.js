@@ -1,4 +1,6 @@
 const { defineConfig } = require('cypress')
+const fs = require('fs')
+const path = require('path')
 
 export default defineConfig({
 	env: {
@@ -8,6 +10,38 @@ export default defineConfig({
 		deleteConfirm: 'POTWIERDZAM',
 	},
 	e2e: {
+		setupNodeEvents(on, config) {
+			on('task', {
+				readExcel: filePath => {
+					const XLSX = require('xlsx')
+					try {
+						const workbook = XLSX.readFile(filePath)
+						return workbook
+					} catch (error) {
+						return null
+					}
+				},
+				findFile: pattern => {
+					const downloadsFolder = 'cypress/downloads'
+					const files = fs.readdirSync(downloadsFolder)
+					const matchingFile = files.find(file =>
+						file.match(new RegExp(pattern.replace(/\*/g, '.*'))),
+					)
+					return matchingFile ? path.join(downloadsFolder, matchingFile) : null
+				},
+				// Dodaj nowy task do czyszczenia folderu
+				deleteDownloads: () => {
+					const downloadsFolder = 'cypress/downloads'
+					if (fs.existsSync(downloadsFolder)) {
+						fs.readdirSync(downloadsFolder).forEach(file => {
+							const filePath = path.join(downloadsFolder, file)
+							fs.unlinkSync(filePath)
+						})
+					}
+					return null
+				},
+			})
+		},
 		reporter: 'mochawesome',
 		reporterOptions: {
 			reportDir: 'cypress/results/json_reports',
@@ -18,7 +52,7 @@ export default defineConfig({
 			attachments: true,
 		},
 		screenshotOnRunFailure: true,
-		video: false, // wyłączenie nagrywania video
+		video: false,
 		specPattern: 'cypress/e2e/**/*.{js,jsx,ts,tsx,feature}',
 		baseUrl: 'https://app.kadromierz.pl/',
 		supportFile: 'cypress/support/e2e.ts',
@@ -32,5 +66,6 @@ export default defineConfig({
 			runMode: 2,
 			openMode: 1,
 		},
+		downloadsFolder: 'cypress/downloads', // folder na pobrane pliki
 	},
 })
