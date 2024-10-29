@@ -9,7 +9,7 @@
     "mocha:results": "npx cypress run --reporter mochawesome",
     "combine:reports": "npx mochawesome-merge \"cypress/results/json_reports/*.json\" > cypress/results/combined/kadromierz.json",
     "generate:report": "npx marge cypress/results/combined/kadromierz.json -f report -o cypress/results/html_reports",
-    "test:all": "npm run clean:reports && npm run mocha:results && npm run combine:reports && npm run generate:report"
+    "create:reports": "npm run clean:reports && npm run mocha:results && npm run combine:reports && npm run generate:report"
   },
   "keywords": [
     "testing",
