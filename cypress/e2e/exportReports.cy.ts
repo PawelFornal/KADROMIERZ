@@ -1,4 +1,3 @@
-
 import { DatePickerPage } from "cypress/pages/DatePickerPage";
 import ReportsPage from "cypress/pages/ExportReportsPage";
 import SideBarMenu from "cypress/pages/SideBarPage";
@@ -13,15 +12,14 @@ const testData = {
     start: '01.09.2024',
     end: '30.09.2024',
     employeeName: 'Marcin Marciniszyn'
-
 }
 
 describe("Download a working time report", () => {
     beforeEach(() => {
-        // Wyczyść folder downloads przed każdym testem
         cy.task('deleteDownloads')
         cy.login(Cypress.env("Login"), Cypress.env("Password"));
     })
+
     it("It should be possible to go to exports and generate working time report", () => {
         sideBarMenu.clickMenuExportIcon()
         cy.generateReport(REPORTS.SUMMARY_TIME_REPORT)
@@ -31,7 +29,7 @@ describe("Download a working time report", () => {
         reportPage.selectEmployee(testData.employeeName)
         reportPage.checkAllCheckboxes()
         reportPage.clickConfirmExport()
-        reportPage.clickOnDownloadWidged()
+        reportPage.clickOnDownloadWidget()
         cy.compareExcelFiles(
             paths.template,
             paths.downloaded

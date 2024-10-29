@@ -21,7 +21,6 @@ Cypress.Commands.add('login', (login, password) => {
     cy.get(loginPage.loginField).type(login, { force: true });
     cy.get(loginPage.passwordField).type(password, { force: true });
     cy.get(loginPage.submitButton).click({ force: true });
-    // cy.acceptCookies();
 });
 
 Cypress.Commands.add('selectDropdownElement', (options: DropdownSelectOptions) => {

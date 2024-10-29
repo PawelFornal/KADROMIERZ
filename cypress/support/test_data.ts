@@ -1,3 +1,6 @@
+export const AUTH_TOKEN = '000034f3-kd01-4f08-a8d2-f52c3a6c';
+export const API_URL = 'https://api.kadromierz.pl/v2/';
+
 export const randomString = (noOfCharacters: number): string => {
     const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
     let generatedRandomString = '';

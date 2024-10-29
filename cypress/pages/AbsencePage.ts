@@ -6,9 +6,11 @@ class AbsencePage {
     public clickOnAddAbsenceButton(): void {
         cy.get(absencesSelectors.addAbsenceButton).click()
     }
+
     public checkAbsenceRequestSubmitted(employeeName: string): Cypress.Chainable<any> {
         return cy.scrollTo('top').contains(absencesSelectors.employeeFinder, employeeName)
     }
+
     public clickOnAcceptRequestButton(employeeName: string, options: string): void {
         cy.scrollTo('top');
         cy.contains(absencesSelectors.employeeFinder, employeeName)
@@ -19,6 +21,13 @@ class AbsencePage {
             .should('be.visible')
             .click();
         cy.get(employeeSelector.confirmButton).click();
+    }
+
+    public getConfirmationAbsenceRequest(employeeName: string): Cypress.Chainable<any> {
+        return cy.scrollTo('top').contains(absencesSelectors.employeeFinder, employeeName)
+            .closest(absencesSelectors.tableRow)
+            .find('div[class="mdChip mdChip--green"]')
+            .scrollIntoView()
     }
 
     public findAbsenceTable(): Cypress.Chainable<any> {

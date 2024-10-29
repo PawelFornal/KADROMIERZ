@@ -1,25 +1,32 @@
 import { employeeSelector, newEmployee } from "cypress/support/selectors/companyManage";
 
 class AddEmployee {
+
     public clickAddEmployeeButton(): void {
         cy.get(employeeSelector.addEmployeeButton).should('be.visible').click()
     }
+
     public addEmployeeFirstName(firstName: string): void {
         cy.get(newEmployee.firstName).type(firstName)
     }
+
     public addEmployeeLastName(lastName: string): void {
         cy.get(newEmployee.lastName).type(lastName)
     }
+
     public addEmployeeCredentials(firstName: string, lastName: string): void {
         this.addEmployeeFirstName(firstName)
         this.addEmployeeLastName(lastName)
     }
+
     public clickLocationTab(): void {
         cy.get(newEmployee.locationTab).click()
     }
+
     public clickLocationSelect(): void {
         cy.get(newEmployee.locationSelect).click()
     }
+
     public selectLocation(location: string): void {
         cy.get(newEmployee.locationTab).click()
         cy.get(newEmployee.locationSelect).click()
@@ -27,12 +34,15 @@ class AddEmployee {
             .contains(location)
             .click()
     }
+
     public clickContractsTab(): void {
         cy.get(newEmployee.contractsTab).click()
     }
+
     public clickJobSelect(): void {
         cy.get(newEmployee.jobSelect).click()
     }
+
     public selectJob(job: string): void {
         cy.get(newEmployee.contractsTab).click()
         cy.get(newEmployee.jobSelect).click()
@@ -40,12 +50,15 @@ class AddEmployee {
             .contains(job)
             .click()
     }
+
     public clickOnSaveButton(): void {
         cy.get(employeeSelector.confirmButton).click()
     }
+
     public checkAddedEmployee(lastName: string): Cypress.Chainable<any> {
         return cy.get(employeeSelector.employeeNameColumn)
     }
+
     public deleteAddedEmployee(lastName: string): void {
         cy.get(employeeSelector.employeeNameColumn)
             .should('contain', lastName)

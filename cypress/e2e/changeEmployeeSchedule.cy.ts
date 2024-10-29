@@ -3,9 +3,6 @@ import SchedulerPage from "cypress/pages/SchedulerPage";
 import { ScheduleTablePage } from "cypress/pages/ScheduleTablePage";
 import SideBarMenu from "cypress/pages/SideBarPage";
 
-
-
-
 const sideBarMenu = new SideBarMenu();
 const schedulePage = new SchedulerPage();
 const datePicker = new DatePickerPage();
@@ -17,13 +14,14 @@ const testData = {
     dayToChange: '04.09',
     employeeName: 'Marciniszyn',
     hours: '0800-1500'
-
 }
-describe('Change employee scheduler', () => {
+
+describe('Change employee schedule', () => {
     beforeEach(() => {
         cy.login(Cypress.env("Login"), Cypress.env("Password"));
     });
-    it('It should be possible to make changes in employee scheduler', () => {
+
+    it('It should be possible to make changes in employee schedule', () => {
         sideBarMenu.clickScheduleIcon();
         datePicker.selectWorkScheduleDateRange(testData.start, testData.end);
         scheduleTable.selectSchedule({
@@ -36,10 +34,10 @@ describe('Change employee scheduler', () => {
         schedulePage.verifyChanges(testData.employeeName)
             .should('be.visible');
     });
+
     afterEach(() => {
         sideBarMenu.clickScheduleIcon();
         datePicker.selectWorkScheduleDateRange(testData.start, testData.end);
         schedulePage.clickDeleteSchedule(testData.employeeName);
-
     })
 });

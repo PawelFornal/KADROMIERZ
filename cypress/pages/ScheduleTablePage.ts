@@ -1,6 +1,7 @@
 import { scheduleTable } from "cypress/support/utils/scheduleTable";
 
 export class ScheduleTablePage {
+
     selectSchedule(options: {
         startDate: string,
         endDate: string,

@@ -6,5 +6,6 @@ export const loginPage = {
     loginWithGoogle: 'button[type="button"] span',
     rememberMeCheckBox: '#rememberMe',
     createAccount: '.k-loginView__createAccount',
-    newPasswordButton: '.k-password__button'
+    newPasswordButton: '.k-password__button',
+    failedLoginMessage: '.kmd-textInput__error',
 }

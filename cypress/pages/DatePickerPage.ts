@@ -4,6 +4,7 @@ import { datePickerAbsence, datePickerReports, datePickerSelector, datePickerWor
 
 
 export class DatePickerPage {
+
     private readonly datePicker = datePickerSelector;
 
     selectDateRange(

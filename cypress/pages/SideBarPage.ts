@@ -13,15 +13,19 @@ class SideBarMenu {
     public getMenuLogoutIcon(): void {
         cy.get(sideBarSelector.logoutIcon).eq(2)
     }
+
     public getScheduleIcon(): void {
         cy.get(sideBarSelector.scheduleIcon)
     }
+
     public clickScheduleIcon(): void {
         cy.get(sideBarSelector.scheduleIcon).click('left')
     }
+
     public clickCompanyManageIcon(): void {
         cy.get(sideBarSelector.companyManageIcon).click('left')
     }
+
     public clickAbsenceIcon(): void {
         cy.get(sideBarSelector.absencesIcon).click('left')
     }
