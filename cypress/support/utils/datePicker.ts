@@ -31,22 +31,54 @@ export const datePickerSelector = {
         if (diffDays > 45) throw new Error('Date range cannot exceed 45 days');
     },
 
-    navigateToMonth(dateStr: string): void {
+    // navigateToMonth(dateStr: string, attempts: number = 0, maxAttempts: number = 12): void {
+    //     if (attempts >= maxAttempts) {
+    //         throw new Error(`Przekroczono maksymalny limit ${maxAttempts} prób`); 
+    //     }
+    //     const [, month, year] = dateStr.split('.').map(Number);
+    //     const monthName = POLISH_MONTHS[month - 1];
+
+    //     cy.get(calendarSelectors.monthYearPicker).then($month => {
+    //         const [currentMonth, currentYear] = $month.text().split(' ');
+    //         if (!$month.text().includes(`${monthName} ${year}`)) {
+    //             const currentMonthIndex = POLISH_MONTHS.indexOf(currentMonth.toLowerCase());
+    //             const direction = new Date(year, month - 1) >
+    //                 new Date(parseInt(currentYear), currentMonthIndex);
+    //             // IF direction jest TRUE, to znaczy, że data, którą chcemy wybrać jest większa od aktualnej
+    //             // i musimy kliknąć w przycisk "następny", ELSE klikamy w przycisk "poprzedni"
+    //             cy.get(direction ? calendarSelectors.nextButton : calendarSelectors.prevButton).click();
+    //             this.navigateToMonth(dateStr, attempts + 1, maxAttempts); // spróbować to zrobić w pętli WHILE żeby zużyło mniej pamięci
+    //         }
+    //     });
+    // },
+    navigateToMonth(dateStr: string, attempts: number = 0, maxAttempts: number = 12): void {
         const [, month, year] = dateStr.split('.').map(Number);
         const monthName = POLISH_MONTHS[month - 1];
+        let currentAttempts = attempts;
 
-        cy.get(calendarSelectors.monthYearPicker).then($month => {
-            const [currentMonth, currentYear] = $month.text().split(' ');
-            if (!$month.text().includes(`${monthName} ${year}`)) {
+        while (currentAttempts < maxAttempts) {
+            if (currentAttempts >= maxAttempts) {
+                throw new Error(`Przekroczono maksymalny limit ${maxAttempts} prób`);
+            }
+
+            cy.get(calendarSelectors.monthYearPicker).then($month => {
+                const [currentMonth, currentYear] = $month.text().split(' ');
+
+                if ($month.text().includes(`${monthName} ${year}`)) {
+                    return; // Znaleziono właściwy miesiąc, kończymy
+                }
+
                 const currentMonthIndex = POLISH_MONTHS.indexOf(currentMonth.toLowerCase());
                 const direction = new Date(year, month - 1) >
                     new Date(parseInt(currentYear), currentMonthIndex);
-                cy.get(direction ? calendarSelectors.nextButton : calendarSelectors.prevButton).click();
-                this.navigateToMonth(dateStr);
-            }
-        });
-    },
 
+                cy.get(direction ? calendarSelectors.nextButton : calendarSelectors.prevButton).click();
+                currentAttempts++;
+            });
+        }
+
+        throw new Error(`Przekroczono maksymalny limit ${maxAttempts} prób`);
+    },
 
     selectDate(dateStr: string): void {
         const [day, month, year] = dateStr.split('.');

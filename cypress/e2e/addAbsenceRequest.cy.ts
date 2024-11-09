@@ -42,7 +42,7 @@ describe("Add absence request", () => {
             .and('contain', 'Zaakceptowany')
     });
 
-    afterEach(() => {
+    after(() => {
         sideBarMenu.clickAbsenceIcon();
         absencePage.findAbsenceTable().should('be.visible');
         absencePage.clickOnRemoveRequestButton(absenceData.employeeName, absenceData.options, absenceData.remove);

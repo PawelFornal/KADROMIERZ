@@ -1,2 +1,2 @@
-export const cookiesAcceptButton = '#CybotCookiebotDialogBodyButtonAccept'
+export const cookiesAcceptButton = '#CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll'
 export const cookiesBanner = '#CybotCookiebotDialog'

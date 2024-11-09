@@ -12,6 +12,7 @@ export default defineConfig({
 	e2e: {
 		setupNodeEvents(on, config) {
 			on('task', {
+				// służy do odczytywania plików Excela
 				readExcel: filePath => {
 					const XLSX = require('xlsx')
 					try {
@@ -21,6 +22,7 @@ export default defineConfig({
 						return null
 					}
 				},
+				// służy do wyszukania pliku w cypress/downloads
 				findFile: pattern => {
 					const downloadsFolder = 'cypress/downloads'
 					const files = fs.readdirSync(downloadsFolder)
@@ -29,7 +31,7 @@ export default defineConfig({
 					)
 					return matchingFile ? path.join(downloadsFolder, matchingFile) : null
 				},
-				// Dodaj nowy task do czyszczenia folderu
+				// Dodaje nowy task do czyszczenia folderu
 				deleteDownloads: () => {
 					const downloadsFolder = 'cypress/downloads'
 					if (fs.existsSync(downloadsFolder)) {

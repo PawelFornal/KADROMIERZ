@@ -1,9 +1,9 @@
 {
-  "trailingComma": "all",
-  "tabWidth": 2,
-  "semi": false,
-  "singleQuote": true,
-  "useTabs": true,
-  "bracketSpacing": true,
-  "arrowParens": "avoid"
+  "trailingComma": "all", // przecinek na końcu obiektów,
+  "tabWidth": 2, // szerokość tabulatora,
+  "semi": false, // średniki na końcu linii,
+  "singleQuote": true, // pojedyncze zamiast podwójnych cudzysłowów,
+  "useTabs": true, // używaj tabulatorów zamiast spacji
+  "bracketSpacing": true, // dodaj spację przed nawiasami
+  "arrowParens": "avoid" // dodaj nawiasy do pojedynczych argumentów funkcji
 }

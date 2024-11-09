@@ -38,7 +38,8 @@
 		"types": [
 			"cypress",
 			"@cypress/grep",
-			"node"
+			"node",
+			"@faker-js/faker"
 			// "cypress-cucumber-preprocessor"
 		] /* Specify type package names to be included without being referenced in a source file. */,
 		// "allowUmdGlobalAccess": true,                     /* Allow accessing UMD globals from modules. */
