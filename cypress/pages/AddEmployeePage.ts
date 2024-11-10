@@ -67,7 +67,7 @@ class AddEmployee {
         cy.get(employeeSelector.deleteTextField).type(Cypress.env("deleteConfirm"))
         cy.get(employeeSelector.confirmButton).click()
         cy.get(employeeSelector.employeeNameColumn)
-            .should('contain', lastName)
+            .should('not.contain', lastName)
     }
 }
 export default AddEmployee;

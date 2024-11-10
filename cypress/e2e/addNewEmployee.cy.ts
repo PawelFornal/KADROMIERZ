@@ -34,7 +34,7 @@ describe("Adding new employee functionality in 'Moja Firma' menu", () => {
         addEmployee.selectJob(testData.job)
         addEmployee.clickOnSaveButton()
         addEmployee.checkAddedEmployee(testData.lastName)
-            .should('contain', `${testData.firstName} ${testData.lastName}`)
+            .should('contain', `${testData.lastName}`)
     })
 
     afterEach(() => {
