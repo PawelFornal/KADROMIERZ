@@ -1,14 +1,14 @@
 {
   "stats": {
     "suites": 1,
-    "tests": 1,
-    "passes": 1,
+    "tests": 2,
+    "passes": 2,
     "pending": 0,
     "failures": 0,
-    "start": "2024-10-28T15:58:24.577Z",
-    "end": "2024-10-28T15:58:37.767Z",
-    "duration": 13190,
-    "testsRegistered": 1,
+    "start": "2024-11-10T21:25:09.801Z",
+    "end": "2024-11-10T21:25:30.057Z",
+    "duration": 20256,
+    "testsRegistered": 2,
     "passPercent": 100,
     "pendingPercent": 0,
     "other": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "ee8b44fc-26d1-4aa7-87a6-a44142bad39f",
+      "uuid": "4c223023-6826-46e2-81ce-200875a98603",
       "title": "",
       "fullFile": "cypress\\e2e\\login.cy.ts",
       "file": "cypress\\e2e\\login.cy.ts",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "1e214c3a-4ac0-4b49-a516-b4362f3520fd",
+          "uuid": "f6e960cb-deef-4cb5-b9f6-42143e17f63b",
           "title": "Login page in Kadromierz web-app",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "I should successfully log in with valid credentials",
               "fullTitle": "Login page in Kadromierz web-app I should successfully log in with valid credentials",
               "timedOut": null,
-              "duration": 13052,
+              "duration": 13514,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -47,20 +47,39 @@
               "context": null,
               "code": "cy.login(Cypress.env(\"Login\"), Cypress.env(\"Password\"));\nmainPage.getWelcomeHeader()\n    .should('be.visible')\n    .and('contain', 'Dzień dobry');",
               "err": {},
-              "uuid": "b7d1e5fe-26ce-4003-9b08-ef86138ee816",
-              "parentUUID": "1e214c3a-4ac0-4b49-a516-b4362f3520fd",
+              "uuid": "95f03be8-862c-4a4b-b967-3cdd7b3b9b8e",
+              "parentUUID": "f6e960cb-deef-4cb5-b9f6-42143e17f63b",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verify incorrect email address error handling with SQL injection",
+              "fullTitle": "Login page in Kadromierz web-app Verify incorrect email address error handling with SQL injection",
+              "timedOut": null,
+              "duration": 6368,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.login(\"' OR 1=1--\", \"admin\");\nloginPage.getFailedLoginMessage()\n    .should('be.visible')\n    .and('contain', 'Podany adres email jest niepoprawny');",
+              "err": {},
+              "uuid": "95073eb4-f66d-4850-990e-9ed4af16efae",
+              "parentUUID": "f6e960cb-deef-4cb5-b9f6-42143e17f63b",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "b7d1e5fe-26ce-4003-9b08-ef86138ee816"
+            "95f03be8-862c-4a4b-b967-3cdd7b3b9b8e",
+            "95073eb4-f66d-4850-990e-9ed4af16efae"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 13052,
+          "duration": 19882,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000

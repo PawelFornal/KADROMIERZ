@@ -5,9 +5,9 @@
     "passes": 1,
     "pending": 0,
     "failures": 0,
-    "start": "2024-10-28T15:54:47.650Z",
-    "end": "2024-10-28T15:55:14.179Z",
-    "duration": 26529,
+    "start": "2024-11-10T21:22:30.113Z",
+    "end": "2024-11-10T21:23:00.264Z",
+    "duration": 30151,
     "testsRegistered": 1,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "18e84648-921e-4ab1-acca-067d7c7eebe1",
+      "uuid": "e9e60fec-33b4-48be-a80c-2be41d42c4b0",
       "title": "",
       "fullFile": "cypress\\e2e\\addAbsenceRequest.cy.ts",
       "file": "cypress\\e2e\\addAbsenceRequest.cy.ts",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "a823f1d9-dfe7-4617-ba10-f1d4bdafd955",
+          "uuid": "5bbac46a-2e29-49a3-afa2-b4e04cbe03f3",
           "title": "Add absence request",
           "fullFile": "",
           "file": "",
@@ -35,32 +35,32 @@
           "afterHooks": [],
           "tests": [
             {
-              "title": "It should be possible to add new absence request and accept it ",
-              "fullTitle": "Add absence request It should be possible to add new absence request and accept it ",
+              "title": "It should be possible to add new absence request and accept it",
+              "fullTitle": "Add absence request It should be possible to add new absence request and accept it",
               "timedOut": null,
-              "duration": 22277,
+              "duration": 26640,
               "state": "passed",
               "speed": "slow",
               "pass": true,
               "fail": false,
               "pending": false,
               "context": null,
-              "code": "sideBarMenu.clickAbsenceIcon();\nabsencePage.clickOnAddAbsenceButton();\ncy.selectDropdownElement({\n    label: absenceData.labelEmployee,\n    value: absenceData.employeeName\n});\ncy.selectDropdownElement({\n    label: absenceData.labelType,\n    value: absenceData.absenceType\n});\ncy.selectDateRangeAbsence(absenceData.start, absenceData.end);\nabsencePage.checkAbsenceRequestSubmitted(absenceData.employeeName)\n    .should('be.visible');\nabsencePage.clickOnAcceptRequestButton(absenceData.employeeName, absenceData.options);",
+              "code": "sideBarMenu.clickAbsenceIcon();\nabsencePage.clickOnAddAbsenceButton();\ncy.selectDropdownElement({\n    label: absenceData.labelEmployee,\n    value: absenceData.employeeName\n});\ncy.selectDropdownElement({\n    label: absenceData.labelType,\n    value: absenceData.absenceType\n});\ndatePicker.selectAbsenceDateRange(absenceData.start, absenceData.end);\nabsencePage.checkAbsenceRequestSubmitted(absenceData.employeeName)\n    .should('be.visible');\nabsencePage.clickOnAcceptRequestButton(absenceData.employeeName, absenceData.options);\nabsencePage.getConfirmationAbsenceRequest(absenceData.employeeName)\n    .should('be.visible')\n    .and('contain', 'Zaakceptowany');",
               "err": {},
-              "uuid": "a2306d1c-5d9c-4ef5-9730-0bd7c72e0c82",
-              "parentUUID": "a823f1d9-dfe7-4617-ba10-f1d4bdafd955",
+              "uuid": "466097ad-d630-4c7b-99b5-d06c638767b3",
+              "parentUUID": "5bbac46a-2e29-49a3-afa2-b4e04cbe03f3",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "a2306d1c-5d9c-4ef5-9730-0bd7c72e0c82"
+            "466097ad-d630-4c7b-99b5-d06c638767b3"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 22277,
+          "duration": 26640,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000

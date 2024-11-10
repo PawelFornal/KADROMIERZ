@@ -37,7 +37,7 @@ describe("Adding new employee functionality in 'Moja Firma' menu", () => {
             .should('contain', `${testData.lastName}`)
     })
 
-    afterEach(() => {
+    after(() => {
         sideBarMenu.clickCompanyManageIcon()
         addEmployee.deleteAddedEmployee(testData.lastName)
     })

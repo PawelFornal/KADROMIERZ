@@ -51,33 +51,29 @@ export const datePickerSelector = {
     //         }
     //     });
     // },
-    navigateToMonth(dateStr: string, attempts: number = 0, maxAttempts: number = 12): void {
+    navigateToMonth(dateStr: string): void {
         const [, month, year] = dateStr.split('.').map(Number);
         const monthName = POLISH_MONTHS[month - 1];
-        let currentAttempts = attempts;
+        const maxAttempts = 12;
 
-        while (currentAttempts < maxAttempts) {
-            if (currentAttempts >= maxAttempts) {
-                throw new Error(`Przekroczono maksymalny limit ${maxAttempts} prób`);
-            }
-
+        cy.wrap([...Array(maxAttempts)]).each((_, attempt) => {
             cy.get(calendarSelectors.monthYearPicker).then($month => {
-                const [currentMonth, currentYear] = $month.text().split(' ');
-
-                if ($month.text().includes(`${monthName} ${year}`)) {
-                    return; // Znaleziono właściwy miesiąc, kończymy
+                if (attempt > maxAttempts) {
+                    throw new Error(`Przekroczono maksymalny limit ${maxAttempts} prób`);
                 }
 
+                if ($month.text().includes(`${monthName} ${year}`)) {
+                    return false; // przerywa iterację
+                }
+
+                const [currentMonth, currentYear] = $month.text().split(' ');
                 const currentMonthIndex = POLISH_MONTHS.indexOf(currentMonth.toLowerCase());
                 const direction = new Date(year, month - 1) >
                     new Date(parseInt(currentYear), currentMonthIndex);
 
                 cy.get(direction ? calendarSelectors.nextButton : calendarSelectors.prevButton).click();
-                currentAttempts++;
             });
-        }
-
-        throw new Error(`Przekroczono maksymalny limit ${maxAttempts} prób`);
+        });
     },
 
     selectDate(dateStr: string): void {

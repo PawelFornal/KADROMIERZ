@@ -5,9 +5,9 @@
     "passes": 1,
     "pending": 0,
     "failures": 0,
-    "start": "2024-10-28T15:55:42.713Z",
-    "end": "2024-10-28T15:56:07.198Z",
-    "duration": 24485,
+    "start": "2024-11-10T21:23:49.723Z",
+    "end": "2024-11-10T21:24:23.205Z",
+    "duration": 33482,
     "testsRegistered": 1,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "69a737e6-1ff8-4609-8238-c612019ea318",
+      "uuid": "e74ee83c-32c2-46ea-a0a3-0d95bd07fbab",
       "title": "",
       "fullFile": "cypress\\e2e\\changeEmployeeSchedule.cy.ts",
       "file": "cypress\\e2e\\changeEmployeeSchedule.cy.ts",
@@ -27,40 +27,40 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "1e253ec5-2f7d-48b6-9382-1da448d9d060",
-          "title": "Change employee scheduler",
+          "uuid": "b883423d-90ec-4a58-9160-743ec3243f1a",
+          "title": "Change employee schedule",
           "fullFile": "",
           "file": "",
           "beforeHooks": [],
           "afterHooks": [],
           "tests": [
             {
-              "title": "It should be possible to make changes in employee scheduler",
-              "fullTitle": "Change employee scheduler It should be possible to make changes in employee scheduler",
+              "title": "It should be possible to make changes in employee schedule",
+              "fullTitle": "Change employee schedule It should be possible to make changes in employee schedule",
               "timedOut": null,
-              "duration": 18762,
+              "duration": 25972,
               "state": "passed",
               "speed": "slow",
               "pass": true,
               "fail": false,
               "pending": false,
               "context": null,
-              "code": "sideBarMenu.clickScheduleIcon();\ncy.selectDateRange(testData.start, testData.end);\ncy.selectEmployeSchedule({\n    startDate: testData.start,\n    endDate: testData.end,\n    employeeName: testData.employeeName,\n    dayToChange: testData.dayToChange\n});\nschedulePage.selectWorkingHours(testData.hours);",
+              "code": "sideBarMenu.clickScheduleIcon();\ndatePicker.selectWorkScheduleDateRange(testData.start, testData.end);\nscheduleTable.selectSchedule({\n    startDate: testData.start,\n    endDate: testData.end,\n    employeeName: testData.employeeName,\n    dayToChange: testData.dayToChange\n});\nschedulePage.selectWorkingHours(testData.hours);\nschedulePage.verifyChanges(testData.employeeName)\n    .should('be.visible');",
               "err": {},
-              "uuid": "7a5e6f31-95b2-46dc-a7f4-1ee6ed8dd35c",
-              "parentUUID": "1e253ec5-2f7d-48b6-9382-1da448d9d060",
+              "uuid": "575d5302-2058-43f5-8d86-ce610fd464cd",
+              "parentUUID": "b883423d-90ec-4a58-9160-743ec3243f1a",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "7a5e6f31-95b2-46dc-a7f4-1ee6ed8dd35c"
+            "575d5302-2058-43f5-8d86-ce610fd464cd"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 18762,
+          "duration": 25972,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000

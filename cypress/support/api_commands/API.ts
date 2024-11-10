@@ -1,4 +1,12 @@
 import { API_URL, AUTH_TOKEN } from "../test_data";
+const employeeData = {
+    first_name: "Jan",
+    last_name: "Testowy",
+    role: "Pracownik",
+    role_id: "employee",
+    company_id: "29241",
+    locations: [],
+}
 
 export const API = {
 
@@ -12,14 +20,8 @@ export const API = {
             'Connection': 'keep-alive',
             'authorization': `AUTH-TOKEN token="${AUTH_TOKEN}"`
         },
-        body: {
-            first_name: "Jan",
-            last_name: "Testowy",
-            role: "Pracownik",
-            role_id: "employee",
-            company_id: "29241",
-            locations: [],
-        },
+        body: employeeData,
+
         failOnStatusCode: false
     }),
 }

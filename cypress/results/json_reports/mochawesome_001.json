@@ -1,15 +1,15 @@
 {
   "stats": {
-    "suites": 1,
-    "tests": 1,
+    "suites": 2,
+    "tests": 2,
     "passes": 1,
     "pending": 0,
-    "failures": 0,
-    "start": "2024-10-28T15:55:18.660Z",
-    "end": "2024-10-28T15:55:38.577Z",
-    "duration": 19917,
-    "testsRegistered": 1,
-    "passPercent": 100,
+    "failures": 1,
+    "start": "2024-11-10T21:23:12.346Z",
+    "end": "2024-11-10T21:23:42.824Z",
+    "duration": 30478,
+    "testsRegistered": 2,
+    "passPercent": 50,
     "pendingPercent": 0,
     "other": 0,
     "hasOther": false,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "6b52e7ac-7071-438c-ac76-d52829fce965",
+      "uuid": "61cc09f3-c392-432a-9173-60a34a82cf11",
       "title": "",
       "fullFile": "cypress\\e2e\\addNewEmployee.cy.ts",
       "file": "cypress\\e2e\\addNewEmployee.cy.ts",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "bcaa2bd6-eed1-44af-9638-784e9fe1e7c2",
+          "uuid": "efdab0ed-60d5-47a4-89af-94e148709ba6",
           "title": "Adding new employee functionality in 'Moja Firma' menu",
           "fullFile": "",
           "file": "",
@@ -38,29 +38,72 @@
               "title": "It should be possible to add new employee via side bar's menu 'Moja Firma' ",
               "fullTitle": "Adding new employee functionality in 'Moja Firma' menu It should be possible to add new employee via side bar's menu 'Moja Firma' ",
               "timedOut": null,
-              "duration": 17812,
+              "duration": 23426,
               "state": "passed",
               "speed": "slow",
               "pass": true,
               "fail": false,
               "pending": false,
               "context": null,
-              "code": "sideBarMenu.clickCompanyManageIcon();\naddEmployee.clickAddEmployeeButton();\naddEmployee.addEmployeeCredentials(testData.firstName, testData.lastName);\ncy.selectDropdownElement({\n    label: testData.labelRole,\n    value: testData.role\n});\naddEmployee.selectLocation(testData.location);\naddEmployee.selectJob(testData.job);\naddEmployee.clickOnSaveButton();\naddEmployee.checkAddedEmployee(testData.lastName)\n    .should('contain', `${testData.firstName} ${testData.lastName}`);",
+              "code": "sideBarMenu.clickCompanyManageIcon();\naddEmployee.clickAddEmployeeButton();\naddEmployee.addEmployeeCredentials(testData.firstName, testData.lastName);\ncy.selectDropdownElement({\n    label: testData.labelRole,\n    value: testData.role\n});\naddEmployee.selectLocation(testData.location);\naddEmployee.selectJob(testData.job);\naddEmployee.clickOnSaveButton();\naddEmployee.checkAddedEmployee(testData.lastName)\n    .should('contain', `${testData.lastName}`);",
               "err": {},
-              "uuid": "f9470183-1ce3-4db4-89ad-b09cc79f034c",
-              "parentUUID": "bcaa2bd6-eed1-44af-9638-784e9fe1e7c2",
+              "uuid": "e7f03401-e953-4d93-a346-ec3b1d0e50cf",
+              "parentUUID": "efdab0ed-60d5-47a4-89af-94e148709ba6",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "f9470183-1ce3-4db4-89ad-b09cc79f034c"
+            "e7f03401-e953-4d93-a346-ec3b1d0e50cf"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 17812,
+          "duration": 23426,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "e51cdd72-622b-4122-9761-a98717f9c646",
+          "title": "Adding new employee via API request",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "It should be possible to add new employee via API request",
+              "fullTitle": "Adding new employee via API request It should be possible to add new employee via API request",
+              "timedOut": null,
+              "duration": 778,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "API_1.API.addNewEmployee()\n    .then((response) => {\n    expect(response.status).to.eq(200);\n    expect(response.body.first_name).to.eq('Jan');\n    expect(response.body.last_name).to.eq('Testowy');\n    expect(response.body.role).to.eq('Pracownik');\n    expect(response.body.role_id).to.eq('employee');\n    expect(response.body.company_id).to.eq('29241');\n});",
+              "err": {
+                "message": "AssertionError: expected 500 to equal 200",
+                "estack": "AssertionError: expected 500 to equal 200\n    at Context.eval (webpack://kadromierz-test-automation/./cypress/e2e/addNewEmployee.cy.ts:49:0)",
+                "diff": "- 500\n+ 200\n"
+              },
+              "uuid": "b75e6187-d90c-45f6-8e1e-411d3a1da642",
+              "parentUUID": "e51cdd72-622b-4122-9761-a98717f9c646",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "b75e6187-d90c-45f6-8e1e-411d3a1da642"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 778,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
