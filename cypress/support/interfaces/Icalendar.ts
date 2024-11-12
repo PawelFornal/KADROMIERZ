@@ -6,4 +6,5 @@ export interface DateRange {
 export interface CalendarConfig {
     picker: string;
     closeButton: string;
+    validateDateRange?: boolean;
 }

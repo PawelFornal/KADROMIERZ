@@ -7,17 +7,20 @@ import { POLISH_MONTHS } from "../test_data";
 
 export const datePickerWorkSchedule: CalendarConfig = {
     picker: headerFilters.datePicker,
-    closeButton: calendarSelectors.closeButton
+    closeButton: calendarSelectors.closeButton,
+    validateDateRange: true
 };
 
 export const datePickerReports: CalendarConfig = {
     picker: reportSelectors.calendarField,
-    closeButton: employeeSelector.confirmButton
+    closeButton: employeeSelector.confirmButton,
+    validateDateRange: false
 };
 
 export const datePickerAbsence: CalendarConfig = {
     picker: absencesSelectors.calendarField,
-    closeButton: employeeSelector.confirmButton
+    closeButton: employeeSelector.confirmButton,
+    validateDateRange: false
 };
 
 export const datePickerSelector = {
@@ -89,7 +92,9 @@ export const datePickerSelector = {
             .click({ force: true });
     },
     selectDateRange(startDate: string, endDate: string, config: CalendarConfig = datePickerWorkSchedule): void {
-        this.validateDateRange(startDate, endDate);
+        if (config.validateDateRange) {
+            this.validateDateRange(startDate, endDate);
+        }
         cy.get(config.picker).click();
         this.navigateToMonth(startDate);
         this.selectDate(startDate);
