@@ -5,9 +5,9 @@
     "passes": 1,
     "pending": 0,
     "failures": 0,
-    "start": "2024-11-10T21:22:30.113Z",
-    "end": "2024-11-10T21:23:00.264Z",
-    "duration": 30151,
+    "start": "2024-12-01T11:49:58.677Z",
+    "end": "2024-12-01T11:50:30.139Z",
+    "duration": 31462,
     "testsRegistered": 1,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "e9e60fec-33b4-48be-a80c-2be41d42c4b0",
+      "uuid": "71e3c6f2-0f84-4c02-b3d3-8fe9092ff919",
       "title": "",
       "fullFile": "cypress\\e2e\\addAbsenceRequest.cy.ts",
       "file": "cypress\\e2e\\addAbsenceRequest.cy.ts",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "5bbac46a-2e29-49a3-afa2-b4e04cbe03f3",
+          "uuid": "293fb6bb-d7f1-4a69-af03-86060af39f7a",
           "title": "Add absence request",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "It should be possible to add new absence request and accept it",
               "fullTitle": "Add absence request It should be possible to add new absence request and accept it",
               "timedOut": null,
-              "duration": 26640,
+              "duration": 27843,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -47,20 +47,20 @@
               "context": null,
               "code": "sideBarMenu.clickAbsenceIcon();\nabsencePage.clickOnAddAbsenceButton();\ncy.selectDropdownElement({\n    label: absenceData.labelEmployee,\n    value: absenceData.employeeName\n});\ncy.selectDropdownElement({\n    label: absenceData.labelType,\n    value: absenceData.absenceType\n});\ndatePicker.selectAbsenceDateRange(absenceData.start, absenceData.end);\nabsencePage.checkAbsenceRequestSubmitted(absenceData.employeeName)\n    .should('be.visible');\nabsencePage.clickOnAcceptRequestButton(absenceData.employeeName, absenceData.options);\nabsencePage.getConfirmationAbsenceRequest(absenceData.employeeName)\n    .should('be.visible')\n    .and('contain', 'Zaakceptowany');",
               "err": {},
-              "uuid": "466097ad-d630-4c7b-99b5-d06c638767b3",
-              "parentUUID": "5bbac46a-2e29-49a3-afa2-b4e04cbe03f3",
+              "uuid": "f23cbe2b-c628-4a5c-b1bf-69733d4818f9",
+              "parentUUID": "293fb6bb-d7f1-4a69-af03-86060af39f7a",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "466097ad-d630-4c7b-99b5-d06c638767b3"
+            "f23cbe2b-c628-4a5c-b1bf-69733d4818f9"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 26640,
+          "duration": 27843,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000

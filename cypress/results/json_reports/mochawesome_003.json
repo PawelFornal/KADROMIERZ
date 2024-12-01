@@ -5,9 +5,9 @@
     "passes": 1,
     "pending": 0,
     "failures": 0,
-    "start": "2024-11-10T21:24:32.331Z",
-    "end": "2024-11-10T21:25:04.400Z",
-    "duration": 32069,
+    "start": "2024-12-01T11:51:45.405Z",
+    "end": "2024-12-01T11:52:14.069Z",
+    "duration": 28664,
     "testsRegistered": 1,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "e70e0a9b-996b-4f73-99a1-a09829c64d40",
+      "uuid": "d643cb21-35a2-451f-a547-195383e06e31",
       "title": "",
       "fullFile": "cypress\\e2e\\exportReports.cy.ts",
       "file": "cypress\\e2e\\exportReports.cy.ts",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "08385acd-fecc-4743-a971-d64f44d8669a",
+          "uuid": "6f7e74ee-7e14-4780-8343-7ecfaebc1a16",
           "title": "Download a working time report",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "It should be possible to go to exports and generate working time report",
               "fullTitle": "Download a working time report It should be possible to go to exports and generate working time report",
               "timedOut": null,
-              "duration": 31722,
+              "duration": 28313,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -47,20 +47,20 @@
               "context": null,
               "code": "sideBarMenu.clickMenuExportIcon();\ncy.generateReport(test_data_1.REPORTS.SUMMARY_TIME_REPORT);\ndatePicker.selectReportDateRange(testData.start, testData.end);\nreportPage.clickClearEmployeeFilter();\nreportPage.clickSelectEmployee();\nreportPage.selectEmployee(testData.employeeName);\nreportPage.checkAllCheckboxes();\nreportPage.clickConfirmExport();\nreportPage.clickOnDownloadWidget();\ncy.compareExcelFiles(compareExcelFiles_1.paths.template, compareExcelFiles_1.paths.downloaded);\nreportPage.clickOnHistoryHeader();\nreportPage.findGeneratedReport(testData.start, testData.end).should('be.visible');",
               "err": {},
-              "uuid": "428f2e6f-64d1-4c43-a5b8-90d6b63d826a",
-              "parentUUID": "08385acd-fecc-4743-a971-d64f44d8669a",
+              "uuid": "9051be4d-9a11-4339-bcec-5fd4c1a9c8cb",
+              "parentUUID": "6f7e74ee-7e14-4780-8343-7ecfaebc1a16",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "428f2e6f-64d1-4c43-a5b8-90d6b63d826a"
+            "9051be4d-9a11-4339-bcec-5fd4c1a9c8cb"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 31722,
+          "duration": 28313,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000

@@ -11,8 +11,8 @@ const absenceData = {
     labelType: 'Rodzaj',
     employeeName: 'Marcin Marciniszyn',
     absenceType: 'Urlop wypoczynkowy',
-    start: '08.11.2024',
-    end: '11.11.2024',
+    start: '08.12.2024',
+    end: '11.12.2024',
     options: 'Szczegóły wniosku',
     remove: 'Usuń wniosek',
 }

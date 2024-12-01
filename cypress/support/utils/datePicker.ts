@@ -46,7 +46,7 @@ export const datePickerSelector = {
                 }
 
                 if ($month.text().includes(`${monthName} ${year}`)) {
-                    return false; // przerywa iterację
+                    return false;
                 }
 
                 const [currentMonth, currentYear] = $month.text().split(' ');

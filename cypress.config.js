@@ -4,7 +4,7 @@ const path = require('path')
 
 export default defineConfig({
 	env: {
-		Login: 'pawelfornal91@gmail.com',
+		Login: 'tekeha6747@cantozil.com',
 		Password: 'LaBm)}C^MMq6DhB',
 		hideXHR: true,
 		deleteConfirm: 'POTWIERDZAM',

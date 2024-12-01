@@ -4,8 +4,6 @@ import SideBarMenu from "cypress/pages/SideBarPage";
 import { API } from "cypress/support/api_commands/API";
 
 const testData = {
-    // firstName: randomString(5), // sprobowac biblioteki z fejkowymi danymi np. FAKER JS
-    // lastName: randomString(7),
     firstName: faker.person.firstName(),
     lastName: faker.person.lastName(),
     labelRole: 'Rola',
@@ -42,6 +40,8 @@ describe("Adding new employee functionality in 'Moja Firma' menu", () => {
         addEmployee.deleteAddedEmployee(testData.lastName)
     })
 })
+
+// NOTE: Test will fail due to token expiry
 
 describe("Adding new employee via API request", () => {
     it("It should be possible to add new employee via API request", () => {

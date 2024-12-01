@@ -12,13 +12,13 @@
     "hasOther": false,
     "skipped": 0,
     "hasSkipped": false,
-    "start": "2024-11-10T21:22:30.113Z",
-    "end": "2024-11-10T21:25:30.057Z",
-    "duration": 179944
+    "start": "2024-12-01T11:49:58.677Z",
+    "end": "2024-12-01T11:52:34.768Z",
+    "duration": 156091
   },
   "results": [
     {
-      "uuid": "61cc09f3-c392-432a-9173-60a34a82cf11",
+      "uuid": "b84c59b5-c8fa-4b6f-bacd-08444f1785c7",
       "title": "",
       "fullFile": "cypress\\e2e\\addNewEmployee.cy.ts",
       "file": "cypress\\e2e\\addNewEmployee.cy.ts",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "efdab0ed-60d5-47a4-89af-94e148709ba6",
+          "uuid": "a4815020-e953-41d0-8b16-1ffd45229ea7",
           "title": "Adding new employee functionality in 'Moja Firma' menu",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "It should be possible to add new employee via side bar's menu 'Moja Firma' ",
               "fullTitle": "Adding new employee functionality in 'Moja Firma' menu It should be possible to add new employee via side bar's menu 'Moja Firma' ",
               "timedOut": null,
-              "duration": 23426,
+              "duration": 19000,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -47,26 +47,26 @@
               "context": null,
               "code": "sideBarMenu.clickCompanyManageIcon();\naddEmployee.clickAddEmployeeButton();\naddEmployee.addEmployeeCredentials(testData.firstName, testData.lastName);\ncy.selectDropdownElement({\n    label: testData.labelRole,\n    value: testData.role\n});\naddEmployee.selectLocation(testData.location);\naddEmployee.selectJob(testData.job);\naddEmployee.clickOnSaveButton();\naddEmployee.checkAddedEmployee(testData.lastName)\n    .should('contain', `${testData.lastName}`);",
               "err": {},
-              "uuid": "e7f03401-e953-4d93-a346-ec3b1d0e50cf",
-              "parentUUID": "efdab0ed-60d5-47a4-89af-94e148709ba6",
+              "uuid": "03a8c4be-2de1-43d6-b86a-9b927c03690a",
+              "parentUUID": "a4815020-e953-41d0-8b16-1ffd45229ea7",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "e7f03401-e953-4d93-a346-ec3b1d0e50cf"
+            "03a8c4be-2de1-43d6-b86a-9b927c03690a"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 23426,
+          "duration": 19000,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
         },
         {
-          "uuid": "e51cdd72-622b-4122-9761-a98717f9c646",
+          "uuid": "657f8c76-2e2e-40e2-9cbb-758538fa4787",
           "title": "Adding new employee via API request",
           "fullFile": "",
           "file": "",
@@ -77,7 +77,7 @@
               "title": "It should be possible to add new employee via API request",
               "fullTitle": "Adding new employee via API request It should be possible to add new employee via API request",
               "timedOut": null,
-              "duration": 778,
+              "duration": 415,
               "state": "failed",
               "speed": null,
               "pass": false,
@@ -86,12 +86,12 @@
               "context": null,
               "code": "API_1.API.addNewEmployee()\n    .then((response) => {\n    expect(response.status).to.eq(200);\n    expect(response.body.first_name).to.eq('Jan');\n    expect(response.body.last_name).to.eq('Testowy');\n    expect(response.body.role).to.eq('Pracownik');\n    expect(response.body.role_id).to.eq('employee');\n    expect(response.body.company_id).to.eq('29241');\n});",
               "err": {
-                "message": "AssertionError: expected 500 to equal 200",
-                "estack": "AssertionError: expected 500 to equal 200\n    at Context.eval (webpack://kadromierz-test-automation/./cypress/e2e/addNewEmployee.cy.ts:49:0)",
-                "diff": "- 500\n+ 200\n"
+                "message": "AssertionError: expected 401 to equal 200",
+                "estack": "AssertionError: expected 401 to equal 200\n    at Context.eval (webpack://kadromierz-test-automation/./cypress/e2e/addNewEmployee.cy.ts:48:0)",
+                "diff": "- 401\n+ 200\n"
               },
-              "uuid": "b75e6187-d90c-45f6-8e1e-411d3a1da642",
-              "parentUUID": "e51cdd72-622b-4122-9761-a98717f9c646",
+              "uuid": "2c2f1c9b-c6c2-471b-afcd-91d4744faa96",
+              "parentUUID": "657f8c76-2e2e-40e2-9cbb-758538fa4787",
               "isHook": false,
               "skipped": false
             }
@@ -99,11 +99,11 @@
           "suites": [],
           "passes": [],
           "failures": [
-            "b75e6187-d90c-45f6-8e1e-411d3a1da642"
+            "2c2f1c9b-c6c2-471b-afcd-91d4744faa96"
           ],
           "pending": [],
           "skipped": [],
-          "duration": 778,
+          "duration": 415,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
@@ -119,7 +119,7 @@
       "_timeout": 2000
     },
     {
-      "uuid": "e74ee83c-32c2-46ea-a0a3-0d95bd07fbab",
+      "uuid": "702c5279-03f0-4934-a56d-2595327bc4a6",
       "title": "",
       "fullFile": "cypress\\e2e\\changeEmployeeSchedule.cy.ts",
       "file": "cypress\\e2e\\changeEmployeeSchedule.cy.ts",
@@ -128,7 +128,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "b883423d-90ec-4a58-9160-743ec3243f1a",
+          "uuid": "cf1bf8d0-9abf-42d3-a1e8-67fbcb5fa9c9",
           "title": "Change employee schedule",
           "fullFile": "",
           "file": "",
@@ -139,7 +139,7 @@
               "title": "It should be possible to make changes in employee schedule",
               "fullTitle": "Change employee schedule It should be possible to make changes in employee schedule",
               "timedOut": null,
-              "duration": 25972,
+              "duration": 21882,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -148,20 +148,20 @@
               "context": null,
               "code": "sideBarMenu.clickScheduleIcon();\ndatePicker.selectWorkScheduleDateRange(testData.start, testData.end);\nscheduleTable.selectSchedule({\n    startDate: testData.start,\n    endDate: testData.end,\n    employeeName: testData.employeeName,\n    dayToChange: testData.dayToChange\n});\nschedulePage.selectWorkingHours(testData.hours);\nschedulePage.verifyChanges(testData.employeeName)\n    .should('be.visible');",
               "err": {},
-              "uuid": "575d5302-2058-43f5-8d86-ce610fd464cd",
-              "parentUUID": "b883423d-90ec-4a58-9160-743ec3243f1a",
+              "uuid": "d7d5c1fe-43a1-4054-bb2e-5399bd59733f",
+              "parentUUID": "cf1bf8d0-9abf-42d3-a1e8-67fbcb5fa9c9",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "575d5302-2058-43f5-8d86-ce610fd464cd"
+            "d7d5c1fe-43a1-4054-bb2e-5399bd59733f"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 25972,
+          "duration": 21882,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
@@ -177,7 +177,7 @@
       "_timeout": 2000
     },
     {
-      "uuid": "e70e0a9b-996b-4f73-99a1-a09829c64d40",
+      "uuid": "d643cb21-35a2-451f-a547-195383e06e31",
       "title": "",
       "fullFile": "cypress\\e2e\\exportReports.cy.ts",
       "file": "cypress\\e2e\\exportReports.cy.ts",
@@ -186,7 +186,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "08385acd-fecc-4743-a971-d64f44d8669a",
+          "uuid": "6f7e74ee-7e14-4780-8343-7ecfaebc1a16",
           "title": "Download a working time report",
           "fullFile": "",
           "file": "",
@@ -197,7 +197,7 @@
               "title": "It should be possible to go to exports and generate working time report",
               "fullTitle": "Download a working time report It should be possible to go to exports and generate working time report",
               "timedOut": null,
-              "duration": 31722,
+              "duration": 28313,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -206,20 +206,20 @@
               "context": null,
               "code": "sideBarMenu.clickMenuExportIcon();\ncy.generateReport(test_data_1.REPORTS.SUMMARY_TIME_REPORT);\ndatePicker.selectReportDateRange(testData.start, testData.end);\nreportPage.clickClearEmployeeFilter();\nreportPage.clickSelectEmployee();\nreportPage.selectEmployee(testData.employeeName);\nreportPage.checkAllCheckboxes();\nreportPage.clickConfirmExport();\nreportPage.clickOnDownloadWidget();\ncy.compareExcelFiles(compareExcelFiles_1.paths.template, compareExcelFiles_1.paths.downloaded);\nreportPage.clickOnHistoryHeader();\nreportPage.findGeneratedReport(testData.start, testData.end).should('be.visible');",
               "err": {},
-              "uuid": "428f2e6f-64d1-4c43-a5b8-90d6b63d826a",
-              "parentUUID": "08385acd-fecc-4743-a971-d64f44d8669a",
+              "uuid": "9051be4d-9a11-4339-bcec-5fd4c1a9c8cb",
+              "parentUUID": "6f7e74ee-7e14-4780-8343-7ecfaebc1a16",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "428f2e6f-64d1-4c43-a5b8-90d6b63d826a"
+            "9051be4d-9a11-4339-bcec-5fd4c1a9c8cb"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 31722,
+          "duration": 28313,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
@@ -235,7 +235,7 @@
       "_timeout": 2000
     },
     {
-      "uuid": "4c223023-6826-46e2-81ce-200875a98603",
+      "uuid": "53e7cbff-9693-46ce-8113-da32f7533040",
       "title": "",
       "fullFile": "cypress\\e2e\\login.cy.ts",
       "file": "cypress\\e2e\\login.cy.ts",
@@ -244,7 +244,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "f6e960cb-deef-4cb5-b9f6-42143e17f63b",
+          "uuid": "7347f300-5d12-44b4-9bb2-e03135dde8f0",
           "title": "Login page in Kadromierz web-app",
           "fullFile": "",
           "file": "",
@@ -255,7 +255,7 @@
               "title": "I should successfully log in with valid credentials",
               "fullTitle": "Login page in Kadromierz web-app I should successfully log in with valid credentials",
               "timedOut": null,
-              "duration": 13514,
+              "duration": 13209,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -264,8 +264,8 @@
               "context": null,
               "code": "cy.login(Cypress.env(\"Login\"), Cypress.env(\"Password\"));\nmainPage.getWelcomeHeader()\n    .should('be.visible')\n    .and('contain', 'Dzień dobry');",
               "err": {},
-              "uuid": "95f03be8-862c-4a4b-b967-3cdd7b3b9b8e",
-              "parentUUID": "f6e960cb-deef-4cb5-b9f6-42143e17f63b",
+              "uuid": "f4ec363f-9089-4af6-94db-0bcaea2f3897",
+              "parentUUID": "7347f300-5d12-44b4-9bb2-e03135dde8f0",
               "isHook": false,
               "skipped": false
             },
@@ -273,30 +273,30 @@
               "title": "Verify incorrect email address error handling with SQL injection",
               "fullTitle": "Login page in Kadromierz web-app Verify incorrect email address error handling with SQL injection",
               "timedOut": null,
-              "duration": 6368,
+              "duration": 3198,
               "state": "passed",
-              "speed": "medium",
+              "speed": "fast",
               "pass": true,
               "fail": false,
               "pending": false,
               "context": null,
               "code": "cy.login(\"' OR 1=1--\", \"admin\");\nloginPage.getFailedLoginMessage()\n    .should('be.visible')\n    .and('contain', 'Podany adres email jest niepoprawny');",
               "err": {},
-              "uuid": "95073eb4-f66d-4850-990e-9ed4af16efae",
-              "parentUUID": "f6e960cb-deef-4cb5-b9f6-42143e17f63b",
+              "uuid": "f4a0a52b-517c-4c16-b288-bd35935e5b95",
+              "parentUUID": "7347f300-5d12-44b4-9bb2-e03135dde8f0",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "95f03be8-862c-4a4b-b967-3cdd7b3b9b8e",
-            "95073eb4-f66d-4850-990e-9ed4af16efae"
+            "f4ec363f-9089-4af6-94db-0bcaea2f3897",
+            "f4a0a52b-517c-4c16-b288-bd35935e5b95"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 19882,
+          "duration": 16407,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
@@ -312,7 +312,7 @@
       "_timeout": 2000
     },
     {
-      "uuid": "e9e60fec-33b4-48be-a80c-2be41d42c4b0",
+      "uuid": "71e3c6f2-0f84-4c02-b3d3-8fe9092ff919",
       "title": "",
       "fullFile": "cypress\\e2e\\addAbsenceRequest.cy.ts",
       "file": "cypress\\e2e\\addAbsenceRequest.cy.ts",
@@ -321,7 +321,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "5bbac46a-2e29-49a3-afa2-b4e04cbe03f3",
+          "uuid": "293fb6bb-d7f1-4a69-af03-86060af39f7a",
           "title": "Add absence request",
           "fullFile": "",
           "file": "",
@@ -332,7 +332,7 @@
               "title": "It should be possible to add new absence request and accept it",
               "fullTitle": "Add absence request It should be possible to add new absence request and accept it",
               "timedOut": null,
-              "duration": 26640,
+              "duration": 27843,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -341,20 +341,20 @@
               "context": null,
               "code": "sideBarMenu.clickAbsenceIcon();\nabsencePage.clickOnAddAbsenceButton();\ncy.selectDropdownElement({\n    label: absenceData.labelEmployee,\n    value: absenceData.employeeName\n});\ncy.selectDropdownElement({\n    label: absenceData.labelType,\n    value: absenceData.absenceType\n});\ndatePicker.selectAbsenceDateRange(absenceData.start, absenceData.end);\nabsencePage.checkAbsenceRequestSubmitted(absenceData.employeeName)\n    .should('be.visible');\nabsencePage.clickOnAcceptRequestButton(absenceData.employeeName, absenceData.options);\nabsencePage.getConfirmationAbsenceRequest(absenceData.employeeName)\n    .should('be.visible')\n    .and('contain', 'Zaakceptowany');",
               "err": {},
-              "uuid": "466097ad-d630-4c7b-99b5-d06c638767b3",
-              "parentUUID": "5bbac46a-2e29-49a3-afa2-b4e04cbe03f3",
+              "uuid": "f23cbe2b-c628-4a5c-b1bf-69733d4818f9",
+              "parentUUID": "293fb6bb-d7f1-4a69-af03-86060af39f7a",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "466097ad-d630-4c7b-99b5-d06c638767b3"
+            "f23cbe2b-c628-4a5c-b1bf-69733d4818f9"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 26640,
+          "duration": 27843,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000

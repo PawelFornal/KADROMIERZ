@@ -5,9 +5,9 @@
     "passes": 1,
     "pending": 0,
     "failures": 0,
-    "start": "2024-11-10T21:23:49.723Z",
-    "end": "2024-11-10T21:24:23.205Z",
-    "duration": 33482,
+    "start": "2024-12-01T11:51:08.413Z",
+    "end": "2024-12-01T11:51:37.886Z",
+    "duration": 29473,
     "testsRegistered": 1,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "e74ee83c-32c2-46ea-a0a3-0d95bd07fbab",
+      "uuid": "702c5279-03f0-4934-a56d-2595327bc4a6",
       "title": "",
       "fullFile": "cypress\\e2e\\changeEmployeeSchedule.cy.ts",
       "file": "cypress\\e2e\\changeEmployeeSchedule.cy.ts",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "b883423d-90ec-4a58-9160-743ec3243f1a",
+          "uuid": "cf1bf8d0-9abf-42d3-a1e8-67fbcb5fa9c9",
           "title": "Change employee schedule",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "It should be possible to make changes in employee schedule",
               "fullTitle": "Change employee schedule It should be possible to make changes in employee schedule",
               "timedOut": null,
-              "duration": 25972,
+              "duration": 21882,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -47,20 +47,20 @@
               "context": null,
               "code": "sideBarMenu.clickScheduleIcon();\ndatePicker.selectWorkScheduleDateRange(testData.start, testData.end);\nscheduleTable.selectSchedule({\n    startDate: testData.start,\n    endDate: testData.end,\n    employeeName: testData.employeeName,\n    dayToChange: testData.dayToChange\n});\nschedulePage.selectWorkingHours(testData.hours);\nschedulePage.verifyChanges(testData.employeeName)\n    .should('be.visible');",
               "err": {},
-              "uuid": "575d5302-2058-43f5-8d86-ce610fd464cd",
-              "parentUUID": "b883423d-90ec-4a58-9160-743ec3243f1a",
+              "uuid": "d7d5c1fe-43a1-4054-bb2e-5399bd59733f",
+              "parentUUID": "cf1bf8d0-9abf-42d3-a1e8-67fbcb5fa9c9",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "575d5302-2058-43f5-8d86-ce610fd464cd"
+            "d7d5c1fe-43a1-4054-bb2e-5399bd59733f"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 25972,
+          "duration": 21882,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
